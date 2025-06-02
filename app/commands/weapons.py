@@ -78,8 +78,8 @@ class weapon(commands.Cog):
                 description += '**Zoom**:\n'
                 description += '\n'.join([str(zoom_option) for zoom_option in snekw['Zoom']])
                 description += '\n'
-
-            description +=f"Disposition: {snekw['Disposition']}  ({dispo(float(snekw['Disposition']))}){chr(10)}{chr(10)}"
+            if "Disposition" in snekw:
+                description +=f"Disposition: {snekw['Disposition']}  ({dispo(float(snekw['Disposition']))}){chr(10)}{chr(10)}"
         else:
             description +=(f"Class: {snekw['Slot']}{chr(10)}"+
             f"Type: {snekw['Class']}{chr(10)}"+
