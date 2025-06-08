@@ -5,6 +5,7 @@ from requests import get
 from funcs import dispo, update_cache
 import time
 from redis_manager import cache
+from Levenshtein import distance
 
 class weapon(commands.Cog):
     def __init__(self, bot: commands.Bot):
@@ -166,15 +167,24 @@ class weapon(commands.Cog):
         await self.get_weapon(ctx, message)
 
     async def autocomplete(self, interaction: discord.Interaction, current: str) -> list[discord.app_commands.Choice[str]]:
-        if cache.cache.exists("weapon:1"):
-            cached_weapons = json.loads(cache.cache.get("weapon:1"))
-            data = cached_weapons
-        else:
+        if not cache.cache.exists("weapon:1"):
             update_cache("weapon:1",cache)
-            cached_weapons = json.loads(cache.cache.get("weapon:1"))
-            data = cached_weapons
 
-        return [discord.app_commands.Choice(name=weapon, value=weapon) for weapon in data.keys() if current.lower() in weapon.lower()][:24]
+        data: dict = json.loads(cache.cache.get("weapon:1"))
+
+        current = current.lower()
+
+        weapon_distances = [
+            (
+                weapon, # For alphabetical sorting
+                distance(current, weapon.lower()), # For Levenshtein distance sorting
+                0 if weapon.lower().startswith(current) else 1 # For prefix sorting
+            )
+            for weapon in data.keys()
+        ]
+        weapon_distances.sort(key=lambda x: (x[1], x[2]. x[0])) # Sort by distance first, then by prefix, then alphabetically
+
+        return [discord.app_commands.Choice(name=weapon, value=weapon) for weapon, *_ in weapon_distances[:24]]
 
 
     @discord.app_commands.command(name='weapon', description="Find the stats of certain weapon")

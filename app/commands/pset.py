@@ -4,7 +4,8 @@ import time
 import asyncio
 from discord.ext import commands
 from redis_manager import cache
-from models.wfm import PriceCheck, ItemSubtype
+from models.wfm import PriceCheck
+from warframe_market.common import Subtype
 
 class pset(commands.Cog):
     def __init__(self, bot):
@@ -50,31 +51,28 @@ class pset(commands.Cog):
             await ctx.send(embed=error)
             return
         
-        # download the stuff
-        returns = {}
-        tasks = []
-        for part in prime_dict["Parts"]:
-            trade_name = f"{item} {part if part.lower().endswith('blueprint') else part+' blueprint'}"
-            price_checker = PriceCheck(item=trade_name)
-            task = asyncio.create_task(self.fetch_price(price_checker, part, returns))
-            tasks.append(task)
-        
-        await asyncio.gather(*tasks)
-
-        for part in prime_dict["Parts"]:
-            text += f"{part}: {returns[part]}\n"
-
-        set_name = f"{item} set"
-        set_price_checker = PriceCheck(item=set_name)
-        await self.fetch_price(set_price_checker, 'set', returns)
-        
-        set_price = returns['set']
-        if "Failed" in set_price or "N/A" in set_price:  # try again without set suffix
+        try: 
+            set_name = f"{item} set"
+            set_price_checker = PriceCheck(item=set_name)
+            pieces = await set_price_checker.get_set_pieces()
+        except Exception as e: # try again without set suffix
             set_price_checker = PriceCheck(item=item)
-            await self.fetch_price(set_price_checker, 'set', returns)
-            set_price = returns['set']
+            pieces = await set_price_checker.get_set_pieces()
+        
+        returns = {}
+        await asyncio.gather(*[self.fetch_price(PriceCheck(item=data["slug"]),piece, returns) for piece,data in pieces.items()]) 
 
-        set_price = f"Full set: {set_price}"
+        # pop out the set price by checking the data 
+        set_piece = next(x for x in pieces.items() if x[1]["set"])
+        set_part = pieces.pop(set_piece[0])
+
+        for part, data in pieces.items():
+            # Only keep part name
+            part_name = part.replace(item, "").strip()
+            quantity = data["quantity"]
+            text += f"{quantity}× {part_name}: {returns[part]}\n"
+
+        set_price = f"Full set: {returns[set_piece[0]]}"
     
         download_timer = time.time() - download_start
         
@@ -92,11 +90,11 @@ class pset(commands.Cog):
     async def fetch_price(self, price_checker: PriceCheck, part_key: str, returns_dict: dict):
         """Helper method to fetch price for a part and store it in the returns dictionary"""
         try:
-            result = await price_checker.check_async(subtype=ItemSubtype.BLUEPRINT)
+            result = await price_checker.check(subtype=Subtype.BLUEPRINT)
             returns_dict[part_key] = result
         except Exception as e:
             print(e)
-            returns_dict[part_key] = f"(error)"
+            returns_dict[part_key] = f"(failed)"
 
 
 async def setup(bot):

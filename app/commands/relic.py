@@ -40,7 +40,7 @@ class relic(commands.Cog):
 
             info = ''
             relic_check = PriceCheck(item=relic+" relic")
-            price = relic_check.check_with_quantity()   
+            price = await relic_check.check_with_quantity()   
             if 'IsBaro' in relic and relic['IsBaro']:
                 info = '(B)'
             elif 'Valuted' in relic and relic['Valuted']:
@@ -49,7 +49,7 @@ class relic(commands.Cog):
             embed = discord.Embed(
                 title=f"{info} {relic}\n",
                 color=discord.Colour.random(),
-                description=f"Price (Quantity): {price}"
+                description=f"Price × Quantity: {price}"
             )
 
             # download the stuff
@@ -89,9 +89,13 @@ class relic(commands.Cog):
     async def fetch_price(self, price_checker: PriceCheck, key: str|int, returns_dict: dict):
         """Helper method to fetch price for a part and store it in the returns dictionary"""
         try:
-            result = await price_checker.check_async()
+            if "forma" in price_checker.slug.lower():
+                returns_dict[key] = "(N/A)"
+                return
+            result = await price_checker.check()
             returns_dict[key] = result
         except Exception as e:
+            print(e)
             returns_dict[key] = f"(failed)"
 
 

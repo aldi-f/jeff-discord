@@ -67,7 +67,7 @@ class Scheduler(commands.Cog):
                     print(f"[refill_wiki_data][{time.ctime()}]:\t[Downloading not succesful for '{key}'data retrieved: {return_data}. Retrying...({retries})]")
 
     @tasks.loop(hours=1)
-    async def refill_github_data(selfc):
+    async def refill_github_data(self):
         for key, url in WFCD.items():
             retries = 0
             ready = False
