@@ -1,14 +1,11 @@
 from discord.ext import commands
-from discord import app_commands
 import discord
 import json
-from requests import get
 import time
-from funcs import optimized_find, relic_finder
-from threading import Thread
-from funcs import dispo, update_cache
+import asyncio
 import time
 from redis_manager import cache
+from models.wfm import PriceCheck
 
 
 class relic(commands.Cog):
@@ -32,16 +29,7 @@ class relic(commands.Cog):
         start = time.time()
         relic = relic.title()
 
-        # check if we have data cached
-        cached = True
-        if cache.cache.exists("void:1"):
-            cached_void = json.loads(cache.cache.get("void:1"))
-        else:
-            cached = False
-            update_cache("void:1",cache)
-            cached_void = json.loads(cache.cache.get("void:1"))
-
-        data =cached_void['RelicData']
+        data = json.loads(cache.get("void:1"))['RelicData']
         if relic not in data:
             error = discord.Embed(
                 description="This relic doesn't exist! \nCheck if you typed it correctly."
@@ -51,51 +39,64 @@ class relic(commands.Cog):
             drop = data[relic]['Drops']
 
             info = ''
-            price = relic_finder(relic) or "-"
+            relic_check = PriceCheck(item=relic+" relic")
+            price = await relic_check.check_with_quantity()   
             if 'IsBaro' in relic and relic['IsBaro']:
                 info = '(B)'
             elif 'Valuted' in relic and relic['Valuted']:
                 info = '(V)'
             
             embed = discord.Embed(
-                title=f"{info} {relic}{chr(10)}",
+                title=f"{info} {relic}\n",
                 color=discord.Colour.random(),
-                description=f"{price}\nAlso showing the 3 lowest warframe.market prices."
+                description=f"Price × Quantity: {price}"
             )
 
-            threads = {}
+            # download the stuff
             returns = {}
+            tasks = []
             for x in range(6):
-                returns[f'{x}'] = None
-                name = drop[x]['Item'] + ' ' + drop[x]['Part']
-                threads[x] = Thread(target=optimized_find, args=(name, returns, f'{x}'))
-                threads[x].start()
-                
-            for x in range(6):
-                threads[x].join()
+                returns[x] = {}
+                name = drop[x]["Item"] + " " + drop[x]["Part"]
+                returns[x]["name"] = name
+                price_checker = PriceCheck(item=name)
+                task = asyncio.create_task(self.fetch_price(price_checker, "price", returns[x]))
+                tasks.append(task)
             
+            await asyncio.gather(*tasks)
+
             embed.add_field(
                 name="Common/Bronze",
-                value=f"{drop[0]['Item']} {drop[0]['Part']} {returns['0']}{chr(10)}"\
-                        +f"{drop[1]['Item']} {drop[1]['Part']} {returns['1']}{chr(10)}"\
-                        +f"{drop[2]['Item']} {drop[2]['Part']} {returns['2']}"
+                value=f"{returns[0]["name"]} {returns[0]["price"]}\n"\
+                        +f"{returns[1]["name"]} {returns[1]["price"]}\n"\
+                        +f"{returns[2]["name"]} {returns[2]["price"]}"
             ,inline=False)
             embed.add_field(
                 name="Uncommon/Silver",
-                value=f"{drop[3]['Item']} {drop[3]['Part']} {returns['3']}{chr(10)}"\
-                        +f"{drop[4]['Item']} {drop[4]['Part']} {returns['4']}"
+                value=f"{returns[3]["name"]} {returns[3]["price"]}\n"\
+                        +f"{returns[4]["name"]} {returns[4]["price"]}"
             ,inline=False)
             embed.add_field(
                 name="Rare/Gold",
-                value=f"{drop[5]['Item']} {drop[5]['Part']} {returns['5']}"
+                value=f"{returns[5]["name"]} {returns[5]["price"]}"
             ,inline=False)
-        
-
       
             embed.set_footer(
                     text=f"Latency: {round((time.time() - start)*1000)}ms"
             )
             await ctx.send(embed=embed)
+
+    async def fetch_price(self, price_checker: PriceCheck, key: str|int, returns_dict: dict):
+        """Helper method to fetch price for a part and store it in the returns dictionary"""
+        try:
+            if "forma" in price_checker.slug.lower():
+                returns_dict[key] = "(N/A)"
+                return
+            result = await price_checker.check()
+            returns_dict[key] = result
+        except Exception as e:
+            print(e)
+            returns_dict[key] = f"(failed)"
 
 
 async def setup(bot):

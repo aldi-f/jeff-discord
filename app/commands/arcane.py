@@ -1,11 +1,10 @@
 from discord.ext import commands
 import discord
 import json
-from requests import get
-from funcs import find, update_cache
 import time
 import re
 from redis_manager import cache
+from models.wfm import PriceCheck
 
 class arcane(commands.Cog):
     def __init__(self, bot):
@@ -31,56 +30,52 @@ class arcane(commands.Cog):
         donwload_start = time.time()
         cached = True
         # check if we have data cached
-        if cache.cache.exists("arcane:1"):
-            cached_arcanes = json.loads(cache.cache.get("arcane:1"))
-            snekw = cached_arcanes['Arcanes']
-        else:
-            cached = False
-            update_cache("arcane:1",cache)
-            try:
-                cached_arcanes = json.loads(cache.cache.get("arcane:1"))
-                snekw = cached_arcanes['Arcanes']
-            except KeyError:
-                error = discord.Embed(
-                    description="[BROKEN FOR NOW] Arcane names could not be pulled from warframe wiki"
-                )
-                await ctx.send(embed=error)
-                return
+        try:
+            cached_arcanes = json.loads(cache.get("arcane:1"))
+            wiki_data = cached_arcanes['Arcanes']
+        except KeyError:
+            error = discord.Embed(
+                description="Arcane names could not be pulled from warframe wiki"
+            )
+            await ctx.send(embed=error)
+            return
                 
         download_timer = time.time() - donwload_start
         data = None
-        for x in snekw:
-            # print(f"{data['name']} vs {snekw[x]['Name']}")
-            if arcane in snekw[x]['Name']:
+        for x in wiki_data:
+            # print(f"{data['name']} vs {wiki_data[x]['Name']}")
+            if arcane in wiki_data[x]['Name']:
                 # print('Found mod!!!!!!!!!!!!!!!!!!!!!')
-                data = snekw[x]
+                data = wiki_data[x]
                 break
 
         if data is None:
             error = discord.Embed(
-                description="Be sure to type the correct arcane name. [BROKEN] new arcane names could not be pulled from warframe wiki"
+                description="Be sure to type the correct arcane name."
             )
             await ctx.send(embed=error)
             return
+        
         market_start = time.time()
-        price_unranked = find(data['Name'],0)
-        price_ranked = find(data['Name'],data['MaxRank'])
+        price_check = PriceCheck(item=data.get('Name'))
+        price_unranked = price_check.check(rank=0)
+        price_ranked = price_check.check(rank=data.get('MaxRank'))
         market_timer = time.time() - market_start
         criteria = ""
         if data['Criteria']:
-            criteria = f"{data['Criteria']}:{chr(10)}"
-        stats = f"{criteria}"+re.sub('<br \/>',chr(10),str(data['Description']))
+            criteria = f"{data['Criteria']}:\n"
+        stats = f"{criteria}"+re.sub('<br />',chr(10),str(data['Description']))
         arcane_embed = discord.Embed(
             title=f"{data['Name']} | {data['Rarity']}",
-            description=f"***At maximum rank ({data['MaxRank']})***{chr(10)}{chr(10)}{stats}{chr(10)}{chr(10)}Unranked: {price_unranked}{chr(10)}Rank {data['MaxRank']}: {price_ranked}"
+            description=f"***At maximum rank ({data['MaxRank']})***\n\n{stats}\n\nUnranked: {price_unranked}\nRank {data['MaxRank']}: {price_ranked}"
         )
         if not cached:
             arcane_embed.set_footer(
-                text=f"Total Latency: {round((time.time() - start)*1000)}ms{chr(10)}Download Latency: {round(download_timer*1000)}ms{chr(10)}Market Price Latency: {round(market_timer*1000)}ms"
+                text=f"Total Latency: {round((time.time() - start)*1000)}ms\nDownload Latency: {round(download_timer*1000)}ms\nMarket Price Latency: {round(market_timer*1000)}ms"
             )
         else:
             arcane_embed.set_footer(
-                text=f"Total Latency: {round((time.time() - start)*1000)}ms{chr(10)}Cached Latency: {round(download_timer*1000)}ms{chr(10)}Market Price Latency: {round(market_timer*1000)}ms"
+                text=f"Total Latency: {round((time.time() - start)*1000)}ms\nCached Latency: {round(download_timer*1000)}ms\nMarket Price Latency: {round(market_timer*1000)}ms"
             )
         await ctx.send(embed=arcane_embed)
 

@@ -1,13 +1,10 @@
 from discord.ext import commands
-from discord import app_commands
 import discord
 import json
 import time
-from requests import get
 from redis_manager import cache
-import datetime
-from funcs import find, update_cache
-# from logging import info as print
+from funcs import update_cache
+from models.wfm import PriceCheck
 
 class prime(commands.Cog):
     def __init__(self, bot):
@@ -128,8 +125,12 @@ class prime(commands.Cog):
             text +=f"`{info:3} {relic} - {rarity}`{chr(10)}"
                 
         # part price
-        
-        price = f"Market price: {find(price_name)}"
+        try:
+            price_checker = PriceCheck(item=price_name)
+            price = f"Market price: {await price_checker.check()}"
+        except Exception as e:
+            print(f"Error fetching price for {price_name}: {e}")
+            price = "(failed)"
 
         prime_part = discord.Embed(
             description=price + "\n\n" +text,

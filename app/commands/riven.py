@@ -1,9 +1,8 @@
-from discord.ext import commands
-from discord import app_commands
 import discord
 import json
-from requests import get
+import requests
 import time
+from discord.ext import commands
 
 class riven(commands.Cog):
     def __init__(self, bot):
@@ -25,11 +24,12 @@ class riven(commands.Cog):
         
         weapon = weapon.capitalize()
         try:
-            response = get("https://www-static.warframe.com/repos/weeklyRivensPC.json")
-            shits_fucked = False # not yet
-            if response.status_code == "404":
-                response = get("https://www.warframe.com/repos/weeklyRivensPC.json")
-                shits_fucked = True
+            response = requests.get("https://www.warframe.com/repos/weeklyRivensPC.json")
+            # response = get("https://www-static.warframe.com/repos/weeklyRivensPC.json")
+            # shits_fucked = False # not yet
+            # if response.status_code == "404":
+            #     response = get("https://www.warframe.com/repos/weeklyRivensPC.json")
+            #     shits_fucked = True
 
             rivens = json.loads(response.text)
 
@@ -44,16 +44,12 @@ class riven(commands.Cog):
                     name = riven['compatibility']
                     emb_title = riven['compatibility']
 
-                    if shits_fucked:
-                        emb_description = f"Median price unrolled N/A (DE broke it again)"
-                    else:
-                        emb_description = f"Median price unrolled {riven['median']}<:Platinum:992917150358589550>"
-                    break
+                    emb_description = f"Median price unrolled {riven['median']}<:Platinum:992917150358589550>"
 
-            if len(name) == 0 and shits_fucked:
-                name = weapon
-                emb_title = weapon
-                emb_description = f"Median price unrolled N/A (DE broke it again)"
+            # if len(name) == 0 and shits_fucked:
+            #     name = weapon
+            #     emb_title = weapon
+            #     emb_description = f"Median price unrolled N/A (DE broke it again)"
 
             riven_embed = discord.Embed(
                 title=emb_title,
@@ -62,7 +58,7 @@ class riven(commands.Cog):
             if len(name) != 0:
 
                 name = '_'.join(name.lower().split(' '))
-                res_market = get(f"https://api.warframe.market/v1/auctions/search?type=riven&weapon_url_name={name}&sort_by=price_asc")
+                res_market = requests.get(f"https://api.warframe.market/v1/auctions/search?type=riven&weapon_url_name={name}&sort_by=price_asc")
                 market = json.loads(res_market.text)['payload']['auctions']
                 counter = 0
                 for x in market:

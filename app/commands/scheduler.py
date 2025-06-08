@@ -30,21 +30,21 @@ class Scheduler(commands.Cog):
                     print(f"[refill_wiki_data][{time.ctime()}]:\t[Downloading failed '{key}'{chr(10)}]")
                     continue
                 
-                return_data = res.json().get('return')
+                return_data: str= res.json().get('return')
 
                 if return_data:
+                    ready = True
                     # get valid lua table result
                     unserialized_data = unserialize_lua_table(return_data)
 
-                    checksum = hashlib.md5(bytes("".join(json.dumps(unserialized_data)),encoding="utf-8")).hexdigest()
+                    checksum = hashlib.md5(bytes(return_data,encoding="utf-8")).hexdigest()
                     cached = False
                     # check if we have data cached
                     old_checksum = ""
                     if cache.cache.exists(CHECKSUMS[key]):
                         cached = True
-                        old_checksum = cache.cache.get(CHECKSUMS[key])
+                        old_checksum = cache.cache.get(CHECKSUMS[key]).decode("utf-8")
 
-                    ready = True
                     if checksum == old_checksum:
                         # create a new checksum
                         if not cached:
@@ -67,7 +67,7 @@ class Scheduler(commands.Cog):
                     print(f"[refill_wiki_data][{time.ctime()}]:\t[Downloading not succesful for '{key}'data retrieved: {return_data}. Retrying...({retries})]")
 
     @tasks.loop(hours=1)
-    async def refill_github_data(selfc):
+    async def refill_github_data(self):
         for key, url in WFCD.items():
             retries = 0
             ready = False
@@ -89,8 +89,8 @@ class Scheduler(commands.Cog):
                 old_checksum = ""
                 if cache.cache.exists(CHECKSUMS[key]):
                     cached = True
-                    old_checksum = cache.cache.get(CHECKSUMS[key])
-                    
+                    old_checksum =  cache.cache.get(CHECKSUMS[key]).decode("utf-8")
+                
                 if checksum == old_checksum:
                     # create a new checksum
                     if not cached:
@@ -105,7 +105,7 @@ class Scheduler(commands.Cog):
                     text = json.dumps(return_data)
                     cache.cache.set(key, text)
                     cache.cache.set(CHECKSUMS[key], checksum)
-                print(f"[refill_github_data][{time.ctime()}]:\t[{key} data ready on redis!']")
+                    print(f"[refill_github_data][{time.ctime()}]:\t[{key} data ready on redis!']")
                 break
 
 async def setup(bot):
