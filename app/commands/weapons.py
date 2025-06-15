@@ -87,17 +87,20 @@ class weapon(commands.Cog):
                                          for zoom_option in snekw['Zoom']])
                 description += '\n'
 
-            description += f"Disposition: {snekw['Disposition']}  ({dispo(float(snekw['Disposition']))})\n\n"
+            if "Disposition" in snekw:
+                description +=f"Disposition: {snekw['Disposition']}  ({dispo(float(snekw['Disposition']))}){chr(10)}{chr(10)}"
         else:
-            description += (f"Class: {snekw['Slot']}\n" +
-                            f"Type: {snekw['Class']}\n" +
-                            f"Mastery: {snekw.get('Mastery', '-')}\n" +
-                            f"Attack Speed: {snekw['Attacks'][0]['FireRate']}\n" +
-                            f"Combo Duration: {snekw.get("ComboDur", "∞")}\n" +
-                            f"Range: {snekw['MeleeRange']}\n" +
-                            f"Disposition: {snekw['Disposition']}  ({dispo(float(snekw['Disposition']))})\n\n"
-                            )
-
+            description +=(f"Class: {snekw['Slot']}{chr(10)}"+
+            f"Type: {snekw['Class']}{chr(10)}"+
+            f"Mastery: {snekw.get('Mastery','-')}{chr(10)}"+
+            f"Attack Speed: {snekw['Attacks'][0]['FireRate']}{chr(10)}"+
+            f"Combo Duration: {snekw.get("ComboDur","∞")}{chr(10)}"+
+            f"Range: {snekw['MeleeRange']}{chr(10)}"
+            )
+            
+            if "Disposition" in snekw:
+                description +=f"Disposition: {snekw['Disposition']}  ({dispo(float(snekw['Disposition']))}){chr(10)}{chr(10)}"
+                
         wepembed = discord.Embed(
             title=snekw['Name'],
             description=description,
