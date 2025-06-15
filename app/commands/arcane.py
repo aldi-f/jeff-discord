@@ -1,10 +1,16 @@
-from discord.ext import commands
 import discord
 import json
+import logging
 import time
 import re
-from redis_manager import cache
+
+from discord.ext import commands
+
 from models.wfm import PriceCheck
+from redis_manager import cache
+
+logger = logging.getLogger(__name__)
+
 
 class arcane(commands.Cog):
     def __init__(self, bot):
@@ -12,7 +18,7 @@ class arcane(commands.Cog):
 
     @commands.hybrid_command(name='arcane', with_app_command=True, description="Shows the matching arcane")
     # @app_commands.guilds(discord.Object(id=992897664087760979))
-    async def arcane(self, ctx,*, arcane:str = None):
+    async def arcane(self, ctx, *, arcane: str = None):
         """
         Usage: !arcane <arcane-name>\n
         Shows the closest matching arcane and its market price
@@ -26,7 +32,7 @@ class arcane(commands.Cog):
             return
 
         arcane = arcane.title()
-        
+
         donwload_start = time.time()
         cached = True
         # check if we have data cached
@@ -39,7 +45,7 @@ class arcane(commands.Cog):
             )
             await ctx.send(embed=error)
             return
-                
+
         download_timer = time.time() - donwload_start
         data = None
         for x in wiki_data:
@@ -55,7 +61,7 @@ class arcane(commands.Cog):
             )
             await ctx.send(embed=error)
             return
-        
+
         market_start = time.time()
         price_check = PriceCheck(item=data.get('Name'))
         price_unranked = price_check.check(rank=0)
@@ -64,7 +70,7 @@ class arcane(commands.Cog):
         criteria = ""
         if data['Criteria']:
             criteria = f"{data['Criteria']}:\n"
-        stats = f"{criteria}"+re.sub('<br />',chr(10),str(data['Description']))
+        stats = f"{criteria}"+re.sub(r'<br />', "\n", str(data['Description']))
         arcane_embed = discord.Embed(
             title=f"{data['Name']} | {data['Rarity']}",
             description=f"***At maximum rank ({data['MaxRank']})***\n\n{stats}\n\nUnranked: {price_unranked}\nRank {data['MaxRank']}: {price_ranked}"

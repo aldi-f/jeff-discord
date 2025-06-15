@@ -1,18 +1,25 @@
-from discord.ext import commands
-from discord import app_commands
 import discord
 import json
-from requests import get
-from funcs import find,polarity, update_cache
+import logging
 import time
+
+from discord.ext import commands
+from requests import get
+
+from funcs import polarity, update_cache
+from models.wfm import PriceCheck
 from redis_manager import cache
+
+logger = logging.getLogger(__name__)
+
+
 class mod(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     @commands.hybrid_command(name='mod', with_app_command=True, description="Shows the closest matching mod")
     # @app_commands.guilds(discord.Object(id=992897664087760979))
-    async def mod(self, ctx,*, mod:str = None):
+    async def mod(self, ctx, *, mod: str = None):
         """
         Usage: !mod <mod-name>\n
         Shows the closest matching mod and its market price
@@ -38,14 +45,14 @@ class mod(commands.Cog):
             return
         else:
             download_start = time.time()
-             # check if we have data cached
+            # check if we have data cached
             if cache.cache.exists("mod:1"):
                 cached = True
                 cached_mods = json.loads(cache.cache.get("mod:1"))
                 snekw = cached_mods['Mods']
             else:
                 cached = False
-                update_cache("mod:1",cache)
+                update_cache("mod:1", cache)
                 cached_mods = json.loads(cache.cache.get("mod:1"))
                 snekw = cached_mods['Mods']
 
@@ -64,44 +71,49 @@ class mod(commands.Cog):
             price_unranked = ''
             market_start = time.time()
             if snekw_mod['Tradable']:
-                price_ranked = find(snekw_mod['Name'],snekw_mod['MaxRank'])
-                price_unranked = find(snekw_mod['Name'],0)
+                try:
+                    price_checker = PriceCheck(item=snekw_mod['Name'])
+                    price_ranked = await price_checker.check(rank=int(snekw_mod['MaxRank']))
+                    price_unranked = await price_checker.check(rank=0)
+                except Exception as e:
+                    print(
+                        f"Error fetching market price for {snekw_mod['Name']}: {e}")
+                    price_ranked = "(failed)"
+                    price_unranked = "(failed)"
+
             market_timer = time.time() - market_start
 
+            price_text = f"{('**Unranked: **'+str(price_unranked)+'\n**Maxed: **'+str(price_ranked)) if snekw_mod['Tradable'] else ''}"
+
+            embed = discord.Embed(color=discord.Colour.random())
+
             if 'wikiaThumbnail' in data:
-                embed = discord.Embed(
-                    color=discord.Colour.random(),
-
-                    description=f"{('**Unranked: **'+price_unranked+chr(10)+'**Maxed: **'+price_ranked) if snekw_mod['Tradable'] else ''}",
-                )
+                # For mods with thumbnail
+                embed.description = price_text
                 embed.set_image(url=data['wikiaThumbnail'])
-                embed.set_footer(
-                    text=f"{'Transmutable' if 'Transmutable' in snekw_mod else 'Not transmutable'}"+"\n"+f"Total Latency: {round((time.time() - start)*1000)}ms{chr(10)}Download Latency: {round(download_timer*1000)}ms{chr(10)}Market Price Latency: {round(market_timer*1000)}ms"
-                )
-                await ctx.send(embed=embed)
-
             else:
+                # For mods without thumbnail
                 pol = ''
                 if 'Polarity' in snekw_mod:
                     pol = polarity(snekw_mod['Polarity'])
-                
-                embed = discord.Embed(
-                    color=discord.Colour.random(),
-                    title=f"{snekw_mod['Name']}{pol} ({data['rarity']}){chr(10)}{snekw_mod['Type']} Mod",
-                    description=(f"Drain cost: {snekw_mod['BaseDrain']} - {snekw_mod['BaseDrain'] + snekw_mod['MaxRank']} (Ranks 0 - {snekw_mod['MaxRank']})"
-                    +'\n\n'+f"**Effect at rank {snekw_mod['MaxRank']}:**"+'\n'+snekw_mod['Description']
-                    +'\n\n'+f"{('**Unranked: **'+str(price_unranked)+chr(10)+'**Maxed: **'+str(price_ranked)) if snekw_mod['Tradable'] else ''}")
-                )
-                if not cached:
-                    embed.set_footer(
-                        text=f"{'Transmutable' if 'Transmutable' in snekw else 'Not transmutable'}"+"\n"+f"Total Latency: {round((time.time() - start)*1000)}ms{chr(10)}Download Latency: {round(download_timer*1000)}ms{chr(10)}Market Price Latency: {round(market_timer*1000)}ms"
-                    )
-                else:
-                    embed.set_footer(
-                        text=f"{'Transmutable' if 'Transmutable' in snekw else 'Not transmutable'}"+"\n"+f"Total Latency: {round((time.time() - start)*1000)}ms{chr(10)}Cached Latency: {round(download_timer*1000)}ms{chr(10)}Market Price Latency: {round(market_timer*1000)}ms"
-                    )   
-                
-                await ctx.send(embed=embed)
+
+                embed.title = f"{snekw_mod['Name']}{pol} ({data['rarity']})\n{snekw_mod['Type']} Mod"
+                embed.description = (f"Drain cost: {snekw_mod['BaseDrain']} - {snekw_mod['BaseDrain'] + snekw_mod['MaxRank']} (Ranks 0 - {snekw_mod['MaxRank']})"
+                                     + '\n\n' +
+                                     f"**Effect at rank {snekw_mod['MaxRank']}:**" +
+                                     '\n'+snekw_mod['Description']
+                                     + '\n\n'+price_text)
+
+            # Set footer based on cached status
+            transmutable_text = f"{'Transmutable' if 'Transmutable' in snekw_mod else 'Not transmutable'}"
+            latency_type = "Cached Latency" if cached else "Download Latency"
+            footer_text = (f"{transmutable_text}\n\n"
+                           f"Total Latency: {round((time.time() - start)*1000)}ms\n"
+                           f"{latency_type}: {round(download_timer*1000)}ms\n"
+                           f"Market Price Latency: {round(market_timer*1000)}ms")
+
+            embed.set_footer(text=footer_text)
+            await ctx.send(embed=embed)
 
 
 async def setup(bot):

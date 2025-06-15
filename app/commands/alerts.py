@@ -1,9 +1,13 @@
-from math import floor
-from discord.ext import commands
 import discord
 import json
-from requests import get
+import logging
 import time
+
+from discord.ext import commands
+from requests import get
+
+logger = logging.getLogger(__name__)
+
 
 class alerts(commands.Cog):
     def __init__(self, bot):
@@ -38,12 +42,13 @@ class alerts(commands.Cog):
             # length = x.get("maxWaveNum")
             # length_text = f"Waves: {length}\n" if length else ''
             value = f'Rewards: {x.get("reward").get("asString")}\nEnds in {x_eta}'
-            embed.add_field(name=key,value=value, inline=False)
+            embed.add_field(name=key, value=value, inline=False)
 
         embed.set_footer(
             text=f"Latency: {round((time.time() - start)*1000)}ms"
         )
         await ctx.send(embed=embed)
-        
+
+
 async def setup(bot):
     await bot.add_cog(alerts(bot))

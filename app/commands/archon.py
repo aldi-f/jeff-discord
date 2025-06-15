@@ -1,17 +1,23 @@
-from discord.ext import commands
-from discord import app_commands
 import discord
 import json
-from requests import get
-from funcs import get_shard
+import logging
 import time
+
+from discord import app_commands
+from discord.ext import commands
+from requests import get
+
+from funcs import get_shard
+
+logger = logging.getLogger(__name__)
+
 
 class archon(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='archon', description="Show the current Archon Hunt Rotation",aliases=['archonhunt','sportie','ah'])
-    async def sortie(self, ctx, lang:str = None):
+    @commands.command(name='archon', description="Show the current Archon Hunt Rotation", aliases=['archonhunt', 'sportie', 'ah'])
+    async def sortie(self, ctx, lang: str = None):
         """
         Usage: !archon <language>\n
         Defualt language is en (english)\n
@@ -22,7 +28,8 @@ class archon(commands.Cog):
             lang = 'en'
 
         download_start = time.time()
-        response = get(f"https://api.warframestat.us/pc/archonHunt?language={lang}")
+        response = get(
+            f"https://api.warframestat.us/pc/archonHunt?language={lang}")
         download_timer = time.time() - download_start
         data = json.loads(response.text)
 
@@ -30,15 +37,16 @@ class archon(commands.Cog):
             title="Archon Hunt",
             description=f"Boss: {data['boss']}({get_shard(data['boss'])})\nFaction: {data['faction']}",
             color=discord.Colour.random()
-            )
+        )
 
         for x in range(len(data["missions"])):
             mission = data["missions"][x]
             embed.add_field(name=f"({x+1}) {mission['type']}",
-            value=f"{mission['node']}",
-            inline=False)
+                            value=f"{mission['node']}",
+                            inline=False)
 
-        embed.set_footer(text=f"Ends in {data['eta']}\nValid Languages: en, es, fr, it, ko, pl, pt, ru, zh{chr(10)}Total Latency: {round((time.time() - start)*1000)}ms{chr(10)}Download Latency: {round(download_timer*1000)}ms")
+        embed.set_footer(
+            text=f"Ends in {data['eta']}\nValid Languages: en, es, fr, it, ko, pl, pt, ru, zh\nTotal Latency: {round((time.time() - start)*1000)}ms\nDownload Latency: {round(download_timer*1000)}ms")
         await ctx.send(embed=embed)
 
     @app_commands.command(name="archon-hunt", description="Show the current Archon Hunt Rotation")
@@ -59,23 +67,26 @@ class archon(commands.Cog):
             lang = 'en'
         else:
             lang = language.value
-        response = get(f"https://api.warframestat.us/pc/archonHunt?language={lang}")
+        response = get(
+            f"https://api.warframestat.us/pc/archonHunt?language={lang}")
         data = json.loads(response.text)
 
         embed = discord.Embed(
             title="Archon Hunt",
             description=f"Boss: {data['boss']}({get_shard(data['boss'])})\nFaction: {data['faction']}",
             color=discord.Colour.random()
-            )
+        )
 
         for x in range(len(data["missions"])):
             mission = data["missions"][x]
             embed.add_field(name=f"({x+1}) {mission['type']}",
-            value=f"{mission['node']}",
-            inline=False)
+                            value=f"{mission['node']}",
+                            inline=False)
 
-        embed.set_footer(text=f"Ends in {data['eta']}\nValid Languages: en, es, fr, it, ko, pl, pt, ru, zh")
+        embed.set_footer(
+            text=f"Ends in {data['eta']}\nValid Languages: en, es, fr, it, ko, pl, pt, ru, zh")
         await interaction.response.send_message(embed=embed)
+
 
 async def setup(bot):
     await bot.add_cog(archon(bot))
