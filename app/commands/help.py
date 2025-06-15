@@ -20,7 +20,6 @@ class help(commands.Cog):
         cog_desc = initial_text +\
             "**-arcane** <arcane-name>: Shows arcane stats and market price\n\n" +\
             "**-archon** (optional)<language>: Shows current archon rotation\n\n" +\
-            "**-arbie**: Data about current arbitration\n\n" +\
             "**[ALPHA]-baro**: Show current baro status and his inventory\n\n" +\
             "**[BETA]-bounty <place>**: Data about currently running bounties on <place>\n\n" +\
             "**[BETA]-calendar**: 1999 Calendar\n\n" +\
@@ -38,6 +37,7 @@ class help(commands.Cog):
             "**-sortie** (optional)<language>: Shows daily sortie\n\n" +\
             "**-weapon** <weapon-name>: Shows weapon stats\n\n"
 
+        # "**-arbie**: Data about current arbitration\n\n" +\
         # "**-events**: List the currently running events\n\n"+\
         # "**-eda**: Get the currently running Elite Deep Archimedea\n"+\
         embed = discord.Embed(

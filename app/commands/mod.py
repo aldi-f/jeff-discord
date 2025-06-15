@@ -64,7 +64,7 @@ class mod(commands.Cog):
                     break
 
             if snekw_mod is None:
-                await ctx.send("Internal Error!")
+                await ctx.send("Did not find a matching mod!")
                 return
 
             price_ranked = ''

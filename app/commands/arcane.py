@@ -64,8 +64,8 @@ class arcane(commands.Cog):
 
         market_start = time.time()
         price_check = PriceCheck(item=data.get('Name'))
-        price_unranked = price_check.check(rank=0)
-        price_ranked = price_check.check(rank=data.get('MaxRank'))
+        price_unranked = await price_check.check(rank=0)
+        price_ranked = await price_check.check(rank=data.get('MaxRank'))
         market_timer = time.time() - market_start
         criteria = ""
         if data['Criteria']:

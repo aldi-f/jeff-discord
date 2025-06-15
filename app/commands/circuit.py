@@ -25,9 +25,9 @@ class circuit(commands.Cog):
             color=discord.Colour.random()
         )
 
-        embed.add_field(name="Weapons", value="-" +
+        embed.add_field(name="Weapons", value="- " +
                         "\n- ".join(circuit_data["weapons"]), inline=False)
-        embed.add_field(name="Warframes", value="-" +
+        embed.add_field(name="Warframes", value="- " +
                         "\n- ".join(circuit_data["warframes"]), inline=False)
 
         days, hours, minutes, seconds = circuit_data["time_remaining"]
@@ -44,9 +44,9 @@ class circuit(commands.Cog):
             title="Current Circuit Rotation for incarnon genesis",
             color=discord.Colour.random()
         )
-        embed.add_field(name="Weapons", value="-" +
+        embed.add_field(name="Weapons", value="- " +
                         "\n- ".join(circuit_data["weapons"]), inline=False)
-        embed.add_field(name="Warframes", value="-" +
+        embed.add_field(name="Warframes", value="- " +
                         "\n- ".join(circuit_data["warframes"]), inline=False)
 
         days, hours, minutes, seconds = circuit_data["time_remaining"]
