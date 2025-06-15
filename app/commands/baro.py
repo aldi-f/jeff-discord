@@ -1,9 +1,13 @@
-from discord.ext import commands
-from discord import app_commands
 import discord
 import json
-from requests import get
+import logging
 import time
+
+from discord.ext import commands
+from requests import get
+
+logger = logging.getLogger(__name__)
+
 
 class baro(commands.Cog):
     def __init__(self, bot):
@@ -33,15 +37,17 @@ class baro(commands.Cog):
             text = ''
 
             for x in data['inventory']:
-                text +=f"{x['item']}: \u3000 {x['ducats']}<:Ducat:967433339868950638>| {x['credits']}<:Credits:967435392427106348>\n"
+                text += f"{x['item']}: \u3000 {x['ducats']}<:Ducat:967433339868950638>| {x['credits']}<:Credits:967435392427106348>\n"
 
             embed = discord.Embed(
                 title="Baro Ki'Teer Inventory",
                 description=f"{data['location']}\n\n{text}"
             )
             embed.set_footer(
-                    text=f"Latency: {round((time.time() - start)*1000)}ms"
+                text=f"Latency: {round((time.time() - start)*1000)}ms"
             )
             await ctx.send(embed=embed)
+
+
 async def setup(bot):
     await bot.add_cog(baro(bot))

@@ -1,26 +1,29 @@
-import requests
 import discord
+import logging
+import requests
 
 from discord.ext import commands
 from datetime import datetime, timedelta
 
+logger = logging.getLogger(__name__)
+
 
 CYCLES = [
     # name       kullervo?      POI
-    ("Sorrow"   ,True       ,["Archarbor", "Kullervo's Hold"]   ),
-    ("Fear"     ,True       ,["Amphitheater", "Kullervo's Hold"]),
-    ("Joy"      ,False      ,["Archarbor", "Amphitheater"]      ),
-    ("Anger"    ,True       ,["Amphitheater", "Kullervo's Hold"]),
-    ("Envy"     ,False      ,["Archarbor", "Amphitheater"]      ),
+    ("Sorrow", True, ["Archarbor", "Kullervo's Hold"]),
+    ("Fear", True, ["Amphitheater", "Kullervo's Hold"]),
+    ("Joy", False, ["Archarbor", "Amphitheater"]),
+    ("Anger", True, ["Amphitheater", "Kullervo's Hold"]),
+    ("Envy", False, ["Archarbor", "Amphitheater"]),
 ]
 
 url = "https://api.warframestat.us/pc/duviriCycle/"
+
 
 def find_next_cycle(current_cycle: str) -> str:
     index = [cycle[0] for cycle in CYCLES].index(current_cycle)
     next_index = (index + 1) % len(CYCLES)
     return CYCLES[next_index][0]
-
 
 
 class duviri(commands.Cog):
@@ -30,26 +33,25 @@ class duviri(commands.Cog):
     @commands.hybrid_command(name="duviri", with_app_command=True, description="Current Duviri rotation")
     # @app_commands.guilds(discord.Object(id=992897664087760979))
     async def duviri(self, ctx: commands.Context):
-        duviri_api = requests.get("https://api.warframestat.us/pc/duviriCycle/").json()
+        duviri_api = requests.get(
+            "https://api.warframestat.us/pc/duviriCycle/").json()
 
         expiry = duviri_api['expiry']
         state = duviri_api['state']
         target_timestamp = datetime.strptime(expiry, "%Y-%m-%dT%H:%M:%S.%fZ")
 
-
-        # time_api = requests.get("https://timezone.abstractapi.com/v1/current_time/?api_key=23368da787414c17b1e67f510447f287&location=London").json()
-        # current_timestamp = datetime.strptime(time_api["datetime"], "%Y-%m-%d %H:%M:%S")
         current_timestamp = datetime.now(tz=None)
-        
-        if current_timestamp.dst(): # COMMUNITY DEVS DONT KNOW TIMEZONES
+
+        if current_timestamp.dst():  # COMMUNITY DEVS DONT KNOW TIMEZONES
             current_timestamp = current_timestamp - timedelta(hours=1)
-        
-        current_timestamp_string = current_timestamp.strftime("%Y-%m-%dT%H:%M:%S")
+
+        current_timestamp_string = current_timestamp.strftime(
+            "%Y-%m-%dT%H:%M:%S")
 
         time_left = target_timestamp - current_timestamp
 
         negative = False
-        if time_left.total_seconds() < 0: # check for 
+        if time_left.total_seconds() < 0:  # check for
             time_left = abs(time_left)
             negative = True
 
@@ -71,10 +73,12 @@ class duviri(commands.Cog):
             timing += f"{seconds} second"
 
         current_cycle = state.capitalize()
-        current_name, current_kullervo, current_poi = [cycle for cycle in CYCLES if cycle[0]==current_cycle][0]
+        current_name, current_kullervo, current_poi = [
+            cycle for cycle in CYCLES if cycle[0] == current_cycle][0]
 
         next_cycle = find_next_cycle(current_cycle)
-        next_name, next_kullervo, _ = [cycle for cycle in CYCLES if cycle[0]==next_cycle][0]
+        next_name, next_kullervo, _ = [
+            cycle for cycle in CYCLES if cycle[0] == next_cycle][0]
 
         poi = "**Points of Interest**:\n"
         for point in current_poi:

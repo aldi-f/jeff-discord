@@ -1,11 +1,13 @@
 from requests import get
 import json
 import time
-from redis_manager import RedisManager
 import requests
 import hashlib
 import luadata
 from functools import cache
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from redis_manager import RedisManager
 
 def dispo(num:int):
     """
@@ -313,7 +315,7 @@ def unserialize_lua_table(lua_table: str)-> dict:
     lua_table = lua_table[start_idx:end_idx]
     return luadata.unserialize(lua_table)
 
-def update_cache(data_key:str, redis_cache: RedisManager):
+def update_cache(data_key:str, redis_cache: "RedisManager"):
     ready = False
     retries = 0
     while not ready and retries < 100:
@@ -362,7 +364,7 @@ def update_cache(data_key:str, redis_cache: RedisManager):
             print(f"[refill_wiki_data][{time.ctime()}]:\t[Downloading not succesful for '{data_key}'data retrieved: {data_key}. Retrying...({retries})]")
 
 @cache
-def find_internal_warframe_name(internal_name: str, redis_cache: RedisManager)-> str|None:
+def find_internal_warframe_name(internal_name: str, redis_cache: "RedisManager")-> str|None:
     if not redis_cache.cache.exists("warframe:1"):
         update_cache("warframe:1", redis_cache)
 
@@ -374,7 +376,7 @@ def find_internal_warframe_name(internal_name: str, redis_cache: RedisManager)->
     return None
 
 @cache
-def find_internal_skin_name(internal_name: str, redis_cache: RedisManager)-> str|None:
+def find_internal_skin_name(internal_name: str, redis_cache: "RedisManager")-> str|None:
     if not redis_cache.cache.exists("skin:1"):
         update_cache("skin:1", redis_cache)
 
@@ -386,7 +388,7 @@ def find_internal_skin_name(internal_name: str, redis_cache: RedisManager)-> str
     return None
 
 @cache
-def find_internal_companion_name(internal_name: str, redis_cache: RedisManager)-> str|None:
+def find_internal_companion_name(internal_name: str, redis_cache: "RedisManager")-> str|None:
     if not redis_cache.cache.exists("companion:1"):
         update_cache("companion:1", redis_cache)
 
@@ -398,7 +400,7 @@ def find_internal_companion_name(internal_name: str, redis_cache: RedisManager)-
     return None
 
 @cache
-def find_internal_ability_name(internal_name: str, redis_cache: RedisManager)-> str|None:
+def find_internal_ability_name(internal_name: str, redis_cache: "RedisManager")-> str|None:
     if not redis_cache.cache.exists("ability:1"):
         update_cache("ability:1", redis_cache)
 

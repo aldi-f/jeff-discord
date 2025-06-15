@@ -1,13 +1,14 @@
-import requests
-import logging
-
 import discord
+import logging
+import requests
+
 from discord.ext import commands
 from datetime import datetime, timezone
 
 from mappings.calendar import EVENTS, SEASON
 
 logger = logging.getLogger(__name__)
+
 
 class Calendar(commands.Cog):
     def __init__(self, bot):
@@ -16,13 +17,15 @@ class Calendar(commands.Cog):
     @commands.hybrid_command(name="calendar", with_app_command=True, description="Get the weekly 1999 Calendar")
     async def calendar(self, ctx):
         try:
-            res = requests.get("https://content.warframe.com/dynamic/worldState.php")
+            res = requests.get(
+                "https://content.warframe.com/dynamic/worldState.php")
             data = res.json()
             calendar = data['KnownCalendarSeasons'][0]
             current_time = datetime.now(timezone.utc)
-            expiry = datetime.fromtimestamp(int(calendar['Expiry']['$date']['$numberLong'])/1000, timezone.utc)
+            expiry = datetime.fromtimestamp(
+                int(calendar['Expiry']['$date']['$numberLong'])/1000, timezone.utc)
             eta = parse_time_left(expiry - current_time)
-            year_iteration = calendar.get('YearIteration',0)
+            year_iteration = calendar.get('YearIteration', 0)
             season = SEASON[calendar['Season']]
 
             challanges = []
@@ -53,10 +56,11 @@ class Calendar(commands.Cog):
                             description += f" ({event_dict['day']})"
                         birthdays.append(description)
                     elif event_type == "CET_UPGRADE":
-                        overrides[day['day']].append([description, event_dict.get("for", "")])
+                        overrides[day['day']].append(
+                            [description, event_dict.get("for", "")])
 
             embed = discord.Embed(
-                title="1999 Calendar", 
+                title="1999 Calendar",
                 description=f"Current iteration: **{year_iteration}**\nSeason: **{season}**"
             )
             embed.set_footer(text=f"Ends in {eta}")
@@ -92,6 +96,7 @@ class Calendar(commands.Cog):
             logger.error(e)
             return await ctx.send(f"Something went wrong!")
 
+
 async def setup(bot):
     await bot.add_cog(Calendar(bot))
 
@@ -109,6 +114,7 @@ def parse_time_left(time_left: datetime) -> str:
     if minutes:
         time_left += f"{minutes} minutes"
     return time_left
+
 
 def find_event_by_unique_name(events, unique_name):
     for event_type, event_data in events.items():
