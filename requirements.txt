@@ -2,6 +2,6 @@ discord.py==2.5.0
 python-dotenv==1.0.1
 redis==6.2.0
 requests
-git+https://github.com/leafvmaple/luadata.git
+luadata=1.0.5
 warframe-market.py==1.0.3
 python-Levenshtein
