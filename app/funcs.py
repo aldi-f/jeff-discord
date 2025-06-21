@@ -313,7 +313,25 @@ def unserialize_lua_table(lua_table: str)-> dict:
     start_idx = lua_table.find('{')
     end_idx = lua_table.rfind('}') + 1
     lua_table = lua_table[start_idx:end_idx]
-    return luadata.unserialize(lua_table)
+
+    # Patches for compatibility with Python
+    # 1. math.huge replaced by 1e308
+    lua_table = lua_table.replace("math.huge", "\"1e308\"")
+
+
+    data = luadata.unserialize(lua_table)
+
+    # Final replaces
+    def convert_inf(obj):
+        if isinstance(obj, dict):
+            return {k: convert_inf(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [convert_inf(x) for x in obj]
+        elif obj == "1e308":
+            return float('inf')
+        return obj
+
+    return convert_inf(data)
 
 def update_cache(data_key:str, redis_cache: "RedisManager"):
     ready = False
