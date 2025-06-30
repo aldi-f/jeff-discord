@@ -9,7 +9,7 @@ from discord.ext import commands
 logger = logging.getLogger(__name__)
 # pinned start with summer time aware datetime to avoid issues with timezones
 
-PINNED_START = datetime(2023, 6, 23, 0, 0, 0, tzinfo=UTC)
+PINNED_START = datetime(2025, 6, 23, 0, 0, 0, tzinfo=UTC)
 ROTATIONS = [
     {
         "Primary": ["Coda Hema", "Coda Sporothrix"],
@@ -40,7 +40,7 @@ class coda(commands.Cog):
 
         embed = discord.Embed(
             title="Current Coda Rotation",
-            description=f"Ends in {next_rotation}",
+            description=f"Ends on {next_rotation}",
             color=discord.Color.green(),
 
         )
