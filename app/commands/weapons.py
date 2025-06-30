@@ -104,7 +104,7 @@ class weapon(commands.Cog):
         wepembed = discord.Embed(
             title=snekw['Name'],
             description=description,
-            url=f"https://warframe.fandom.com/wiki/{'_'.join(snekw['Name'].split(' '))}",
+            url=f"https://wiki.warframe.com/w/{'_'.join(snekw['Name'].split(' '))}",
             color=discord.Colour.random())
 
         for x in snekw['Attacks']:
@@ -192,7 +192,7 @@ class weapon(commands.Cog):
             for weapon in data.keys()
         ]
         # Sort by distance first, then by prefix, then alphabetically
-        weapon_distances.sort(key=lambda x: (x[1], x[2]. x[0]))
+        weapon_distances.sort(key=lambda x: (x[1], x[2], x[0]))
 
         return [discord.app_commands.Choice(name=weapon, value=weapon) for weapon, *_ in weapon_distances[:24]]
 

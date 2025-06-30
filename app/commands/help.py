@@ -23,9 +23,10 @@ class help(commands.Cog):
             "**[ALPHA]-baro**: Show current baro status and his inventory\n\n" +\
             "**[BETA]-bounty <place>**: Data about currently running bounties on <place>\n\n" +\
             "**[BETA]-calendar**: 1999 Calendar\n\n" +\
+            "**-circuit**: List the current rotation of incarnon genesis\n\n" +\
+            "**-coda**: Current Coda rotation\n\n" +\
             "**-darvo**: Daily Darvo deal\n\n" +\
             "**-duviri**: Current Duviri rotation\n\n" +\
-            "**-circuit**: List the current rotation of incarnon genesis\n\n" +\
             "**-fissure** (optional)<rj|sp>: Shows the current fissures\n\n" +\
             "**-mod** <mod-name>: Shows the mod stats and market price\n\n" +\
             "**-nightwave**: Shows current nightwave quests\n\n" +\
