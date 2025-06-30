@@ -191,7 +191,7 @@ class weapon(commands.Cog):
             )
             for weapon in data.keys()
         ]
-        filtered = ((wep, dist, prefix) for wep,dist,prefix in weapon_distances if dist < 5 or prefix == 0)
+        filtered = [(wep, dist, prefix) for wep,dist,prefix in weapon_distances if dist < 5 or prefix == 0]
 
         # Sort by prefix first, then by distance, then alphabetically
         filtered.sort(key=lambda x: (x[2], x[1], x[0]))
