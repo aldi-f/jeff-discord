@@ -14,7 +14,7 @@ ROTATIONS = [
     {
         "Primary": ["Coda Hema", "Coda Sporothrix"],
         "Secondary": ["Coda Catabolyst", "Coda Pox", "Coda Dual Torxica"],
-        "Melee": ["Coda Mire, Coda Motovore"]
+        "Melee": ["Coda Mire", "Coda Motovore"]
     },
     {
         "Primary": ["Coda Bassocyst", "Coda Synapse"],
@@ -40,14 +40,13 @@ class coda(commands.Cog):
 
         embed = discord.Embed(
             title="Current Coda Rotation",
-            description=f"Rotation #{rotation_index + 1}",
+            description=f"Ends in {next_rotation}",
             color=discord.Color.green(),
 
         )
         for weapon_type, weapons in rotation.items():
             embed.add_field(name=weapon_type, value="- "+"\n- ".join(weapons), inline=False)
 
-        embed.set_footer(text=f"Next rotation: {next_rotation}")
         await ctx.send(embed=embed)
 
 
