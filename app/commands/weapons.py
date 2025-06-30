@@ -191,8 +191,8 @@ class weapon(commands.Cog):
             )
             for weapon in data.keys()
         ]
-        # Sort by distance first, then by prefix, then alphabetically
-        weapon_distances.sort(key=lambda x: (x[1], x[2], x[0]))
+        # Sort by prefix first, then by distance, then alphabetically
+        weapon_distances.sort(key=lambda x: (x[2], x[1], x[0]))
 
         return [discord.app_commands.Choice(name=weapon, value=weapon) for weapon, *_ in weapon_distances[:24]]
 
