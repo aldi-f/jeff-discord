@@ -19,7 +19,7 @@ ROTATIONS = [
     {
         "Primary": ["Coda Bassocyst", "Coda Synapse"],
         "Secondary": ["Coda Tysis"],
-        "Melee": ["Coda Caustacyst, Coda Hirudo", "Coda Pathocyst"]
+        "Melee": ["Coda Caustacyst", "Coda Hirudo", "Coda Pathocyst"]
     }
 ]
 
