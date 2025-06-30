@@ -191,10 +191,12 @@ class weapon(commands.Cog):
             )
             for weapon in data.keys()
         ]
-        # Sort by prefix first, then by distance, then alphabetically
-        weapon_distances.sort(key=lambda x: (x[2], x[1], x[0]))
+        filtered = ((wep, dist, prefix) for wep,dist,prefix in weapon_distances if dist < 5 or prefix == 0)
 
-        return [discord.app_commands.Choice(name=weapon, value=weapon) for weapon, *_ in weapon_distances[:24]]
+        # Sort by prefix first, then by distance, then alphabetically
+        filtered.sort(key=lambda x: (x[2], x[1], x[0]))
+
+        return [discord.app_commands.Choice(name=weapon, value=weapon) for weapon, *_ in filtered[:24]]
 
     @discord.app_commands.command(name='weapon', description="Find the stats of certain weapon")
     @discord.app_commands.autocomplete(weapon=autocomplete)
