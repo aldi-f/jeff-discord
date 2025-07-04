@@ -38,11 +38,11 @@ class coda(commands.Cog):
         rotation_index = (days_since_start // DAYS_IN_ROTATION) % len(ROTATIONS)
         rotation = ROTATIONS[rotation_index]
 
-        next_rotation = f"<t:{int((PINNED_START + timedelta(days=((days_since_start // 4) + 1) * 4)).timestamp())}:f>"
+        next_rotation = f"<t:{int((PINNED_START + timedelta(days=((days_since_start // 4) + 1) * 4)).timestamp())}:R>"
 
         embed = discord.Embed(
             title="Current Coda Rotation",
-            description=f"Ends on {next_rotation}",
+            description=f"Ends: {next_rotation}",
             color=discord.Color.green(),
 
         )
