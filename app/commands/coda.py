@@ -10,6 +10,8 @@ logger = logging.getLogger(__name__)
 # pinned start with summer time aware datetime to avoid issues with timezones
 
 PINNED_START = datetime(2025, 6, 23, 0, 0, 0, tzinfo=UTC)
+DAYS_IN_ROTATION = 4
+
 ROTATIONS = [
     {
         "Primary": ["Coda Hema", "Coda Sporothrix"],
@@ -33,10 +35,10 @@ class coda(commands.Cog):
         """Display the current Coda rotation."""
         now = datetime.now(UTC)
         days_since_start = (now - PINNED_START).days
-        rotation_index = (days_since_start // 4) % len(ROTATIONS)
+        rotation_index = (days_since_start // DAYS_IN_ROTATION) % len(ROTATIONS)
         rotation = ROTATIONS[rotation_index]
 
-        next_rotation = f"<t:{int((PINNED_START + timedelta(days=(rotation_index + 1) * 4)).timestamp())}:f>"
+        next_rotation = f"<t:{int(PINNED_START + timedelta(days=((days_since_start // DAYS_IN_ROTATION) + 1) * DAYS_IN_ROTATION).timestamp())}:f>"
 
         embed = discord.Embed(
             title="Current Coda Rotation",
