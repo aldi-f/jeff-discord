@@ -1,0 +1,2439 @@
+{
+  "id": "687809030379266d790495c6",
+  "activation": "2025-07-19T15:00:00.000Z",
+  "startString": "-8h 44m 10s",
+  "expiry": "2025-07-26T15:00:00.000Z",
+  "active": true,
+  "character": "Baro Ki'Teer",
+  "location": "TennoConHUB2",
+  "inventory": [
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/AvatarImageAvaClemCommunityGlyph",
+      "item": "Avatar Image Ava Clem Community Glyph",
+      "ducats": 20,
+      "credits": 33333
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/TennoconConcert2025Display",
+      "item": "Tennocon Concert2025 Display",
+      "ducats": 90,
+      "credits": 125000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/EventSniperReloadDamageMod",
+      "item": "Primed Chamber",
+      "ducats": 2995,
+      "credits": 1000000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/TennoCon2024GlyphAlt",
+      "item": "Tenno Con2024 Glyph Alt",
+      "ducats": 15,
+      "credits": 1000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/Emotes/Tennocon2024EmoteAlt",
+      "item": "Tennocon2024 Emote Alt",
+      "ducats": 15,
+      "credits": 1000
+    },
+    {
+      "uniqueName": "/Lotus/Types/StoreItems/Boosters/AffinityBooster3DayStoreItem",
+      "item": "3 Day Affinity Booster",
+      "ducats": 450,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/Types/StoreItems/Boosters/CreditBooster3DayStoreItem",
+      "item": "3 Day Credit Booster",
+      "ducats": 350,
+      "credits": 75000
+    },
+    {
+      "uniqueName": "/Lotus/Types/StoreItems/Boosters/ModDropChanceBooster3DayStoreItem",
+      "item": "3 Day Mod Drop Chance Booster",
+      "ducats": 500,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/Types/StoreItems/Boosters/ResourceAmount3DayStoreItem",
+      "item": "3 Day Resource Booster",
+      "ducats": 400,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Tenno/Melee/MeleeTrees/GlaiveCmbTwoMeleeTree",
+      "item": "Astral Twilight",
+      "ducats": 385,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/WeaponEventSlashDamageMod",
+      "item": "Buzz Kill",
+      "ducats": 375,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/WeaponEventMeleeImpactDamageMod",
+      "item": "Collision Force",
+      "ducats": 400,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/WeaponGlaiveOnKillBuffSecondary",
+      "item": "Combo Fury",
+      "ducats": 300,
+      "credits": 115000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/WeaponGlaiveSecondaryHeadshotKillMod",
+      "item": "Weapon Glaive Secondary Headshot Kill Mod",
+      "ducats": 300,
+      "credits": 115000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/WeaponEventRifleImpactDamageMod",
+      "item": "Crash Course",
+      "ducats": 330,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/WeaponEventSlashDamageMod",
+      "item": "Fanged Fusillade",
+      "ducats": 375,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/WeaponEventShotgunImpactDamageMod",
+      "item": "Full Contact",
+      "ducats": 365,
+      "credits": 220000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/DualStat/ElectEventRifleMod",
+      "item": "High Voltage",
+      "ducats": 300,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/DualStat/ElectEventPistolMod",
+      "item": "Jolt",
+      "ducats": 300,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/WeaponEventSlashDamageMod",
+      "item": "Maim",
+      "ducats": 375,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/WeaponGlaiveOnSixKillsBuffSecondary",
+      "item": "Weapon Glaive On Six Kills Buff Secondary",
+      "ducats": 300,
+      "credits": 115000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Sentinel/SentinelLootRadarEnemyRadarExpertMod",
+      "item": "Primed Animal Instinct",
+      "ducats": 300,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/Expert/PrimedWeaponFactionDamageCorpus",
+      "item": "Primed Bane of Corpus",
+      "ducats": 400,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/Expert/PrimedWeaponFactionDamageCorrupted",
+      "item": "Primed Bane of Orokin",
+      "ducats": 400,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/Expert/PrimedWeaponFactionDamageGrineer",
+      "item": "Primed Bane of Grineer",
+      "ducats": 400,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/Expert/PrimedWeaponFactionDamageInfested",
+      "item": "Primed Bane of Infested",
+      "ducats": 400,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/Expert/WeaponElectricityDamageModExpert",
+      "item": "Primed Charged Shell",
+      "ducats": 350,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/Expert/WeaponFreezeDamageModExpert",
+      "item": "Primed Chilling Grasp",
+      "ducats": 350,
+      "credits": 125000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/Expert/WeaponShotgunFactionDamageCorpusExpert",
+      "item": "Primed Cleanse Corpus",
+      "ducats": 350,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/Expert/WeaponShotgunFactionDamageCorruptedExpert",
+      "item": "Primed Cleanse Orokin",
+      "ducats": 350,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/Expert/WeaponShotgunFactionDamageGrineerExpert",
+      "item": "Primed Cleanse Grineer",
+      "ducats": 350,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/Expert/WeaponShotgunFactionDamageInfestedExpert",
+      "item": "Primed Cleanse Infested",
+      "ducats": 350,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Warframe/Expert/AvatarAbilityDurationModExpert",
+      "item": "Primed Continuity",
+      "ducats": 350,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/Expert/WeaponFreezeDamageModExpert",
+      "item": "Primed Cryo Rounds",
+      "ducats": 350,
+      "credits": 110000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/Expert/WeaponPistolFactionDamageCorpusExpert",
+      "item": "Primed Expel Corpus",
+      "ducats": 350,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/Expert/WeaponPistolFactionDamageCorruptedExpert",
+      "item": "Primed Expel Orokin",
+      "ducats": 350,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/Expert/WeaponPistolFactionDamageGrineerExpert",
+      "item": "Primed Expel Grineer",
+      "ducats": 350,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/Expert/WeaponPistolFactionDamageInfestedExpert",
+      "item": "Primed Expel Infested",
+      "ducats": 350,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/Expert/WeaponReloadSpeedModExpert",
+      "item": "Primed Fast Hands",
+      "ducats": 375,
+      "credits": 120000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/Expert/WeaponToxinDamageModExpert",
+      "item": "Primed Fever Strike",
+      "ducats": 350,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Warframe/Expert/AvatarPowerMaxModExpert",
+      "item": "Primed Flow",
+      "ducats": 350,
+      "credits": 110000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/Expert/WeaponFireDamageModExpert",
+      "item": "Primed Heated Charge",
+      "ducats": 350,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/Expert/WeaponImpactDamageModExpert",
+      "item": "Primed Heavy Trauma",
+      "ducats": 350,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Archwing/Expert/ArchwingSuitAbilityStrengthModExpert",
+      "item": "Primed Morphic Transformer",
+      "ducats": 350,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Sentinel/Kubrow/Expert/KubrowPackLeaderExpertMod",
+      "item": "Primed Pack Leader",
+      "ducats": 300,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/Expert/WeaponPistolConvertAmmoModExpert",
+      "item": "Primed Pistol Ammo Mutation",
+      "ducats": 400,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/Expert/WeaponCritChanceModBeginnerExpert",
+      "item": "Primed Pistol Gambit",
+      "ducats": 400,
+      "credits": 220000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/Expert/WeaponSnipersConvertAmmoModExpert",
+      "item": "Primed Sniper Ammo Mutation",
+      "ducats": 400,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/Expert/WeaponDamageAmountModExpert",
+      "item": "Primed Point Blank",
+      "ducats": 300,
+      "credits": 110000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/Expert/WeaponMeleeDamageModExpert",
+      "item": "Primed Pressure Point",
+      "ducats": 385,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/Expert/WeaponReloadSpeedModExpert",
+      "item": "Primed Quickdraw",
+      "ducats": 375,
+      "credits": 120000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/Expert/WeaponCritDamageModExpert",
+      "item": "Primed Ravage",
+      "ducats": 280,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Sentinels/SentinelPrecepts/PrimedRegen",
+      "item": "Primed Regen",
+      "ducats": 300,
+      "credits": 220000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/Expert/WeaponMeleeRangeIncModExpert",
+      "item": "Primed Reach",
+      "ducats": 300,
+      "credits": 220000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/Expert/WeaponRifleConvertAmmoModExpert",
+      "item": "Primed Rifle Ammo Mutation",
+      "ducats": 400,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Archwing/Rifle/Expert/ArchwingRifleDamageAmountModExpert",
+      "item": "Primed Rubedo-Lined Barrel",
+      "ducats": 350,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/Expert/WeaponShotgunConvertAmmoModExpert",
+      "item": "Primed Shotgun Ammo Mutation",
+      "ducats": 400,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/Expert/WeaponClipMaxModExpert",
+      "item": "Primed Slip Magazine",
+      "ducats": 280,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/Expert/WeaponMeleeFactionDamageCorpusExpert",
+      "item": "Primed Smite Corpus",
+      "ducats": 350,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/Expert/WeaponMeleeFactionDamageCorruptedExpert",
+      "item": "Primed Smite Orokin",
+      "ducats": 350,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/Expert/WeaponMeleeFactionDamageGrineerExpert",
+      "item": "Primed Smite Grineer",
+      "ducats": 350,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/Expert/WeaponMeleeFactionDamageInfestedExpert",
+      "item": "Primed Smite Infested",
+      "ducats": 350,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/Expert/WeaponReloadSpeedModExpert",
+      "item": "Primed Tactical Pump",
+      "ducats": 300,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/Expert/PrimedWeaponCritDamageMod",
+      "item": "Primed Target Cracker",
+      "ducats": 400,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/WeaponEventPistolImpactDamageMod",
+      "item": "Pummel",
+      "ducats": 300,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/DualStat/FireEventShotgunMod",
+      "item": "Scattering Inferno",
+      "ducats": 300,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/DualStat/FireEventPistolMod",
+      "item": "Scorch",
+      "ducats": 300,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/DualStat/ElectEventShotgunMod",
+      "item": "Shell Shock",
+      "ducats": 300,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/BowMultiShotOnHitMod",
+      "item": "Split Flights",
+      "ducats": 300,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/WeaponEventSlashDamageMod",
+      "item": "Sweeping Serration",
+      "ducats": 375,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Tenno/Melee/MeleeTrees/AxeCmbThreeMeleeTree",
+      "item": "Tempo Royale",
+      "ducats": 385,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/DualStat/FireEventRifleMod",
+      "item": "Thermite Rounds",
+      "ducats": 300,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Tenno/Melee/MeleeTrees/ClawCmbTwoMeleeTree",
+      "item": "Vermillion Storm",
+      "ducats": 385,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/DualStat/FireEventMeleeMod",
+      "item": "Volcanic Edge",
+      "ducats": 300,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/DualStat/ElectEventMeleeMod",
+      "item": "Voltaic Strike",
+      "ducats": 300,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/Event/AmbulasEvent/Expert/SecondaryExplosionRadiusModExpert",
+      "item": "Prime Fulmination",
+      "ducats": 350,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/Expert/WeaponRecoilReductionModExpert",
+      "item": "Primed Steady Hands",
+      "ducats": 300,
+      "credits": 220000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/Expert/WeaponRecoilReductionModExpert",
+      "item": "Primed Stabilizer",
+      "ducats": 300,
+      "credits": 220000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/Expert/WeaponRecoilReductionModExpert",
+      "item": "Weapon Recoil Reduction Mod Expert",
+      "ducats": 300,
+      "credits": 220000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Melee/Expert/WeaponMeleeFactionDamageMurmursExpert",
+      "item": "Weapon Melee Faction Damage Murmurs Expert",
+      "ducats": 375,
+      "credits": 130000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/Expert/WeaponClipMaxModExpert",
+      "item": "Primed Magazine Warp",
+      "ducats": 280,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Warframe/Expert/AvatarShieldMaxModExpert",
+      "item": "Primed Redirection",
+      "ducats": 350,
+      "credits": 225000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Rifle/Expert/WeaponIncreaseRadialExplosionModExpert",
+      "item": "Primed Firestorm",
+      "ducats": 350,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Pistol/Expert/PrimedWeaponElectricityDamageMod",
+      "item": "Primed Convulsion",
+      "ducats": 350,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Shotgun/Expert/WeaponClipMaxModExpert",
+      "item": "Ammo Stock",
+      "ducats": 280,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Archwing/Rifle/PrimedArchwingRifleFireIterationsMod",
+      "item": "Primed Archwing Rifle Fire Iterations Mod",
+      "ducats": 400,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Mods/Archwing/Rifle/PrimedArchwingDamageOnReloadMod",
+      "item": "Primed Archwing Damage On Reload Mod",
+      "ducats": 375,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/DomsFinalDrink",
+      "item": "Aged Claret of Denas",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/BaroKiTeerDecorationB",
+      "item": "Akka Luxxum Ornament",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sentinels/Masks/GaussSentinelMask",
+      "item": "Altra Sentinel Mask",
+      "ducats": 450,
+      "credits": 400000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sentinels/Skins/GaussSentinelSkin",
+      "item": "Gauss Sentinel Skin",
+      "ducats": 500,
+      "credits": 425000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sentinels/Tails/GaussSentinelTail",
+      "item": "Altra Sentinel Tail",
+      "ducats": 400,
+      "credits": 500000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sentinels/Wings/GaussSentinelWings",
+      "item": "Gauss Sentinel Wings",
+      "ducats": 400,
+      "credits": 500000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/BaroInarosPolearmSkin",
+      "item": "Anpu Staff Skin",
+      "ducats": 325,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/MeleeDangles/BaroInarosMeleeDangle",
+      "item": "Anpu Sugatra",
+      "ducats": 250,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/Vignettes/Warframes/ArchwingAFItem",
+      "item": "Archwing Articula",
+      "ducats": 100,
+      "credits": 330000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/BaroKiTeerDecorationE",
+      "item": "Asra Luxxum Ornament",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Game/Projections/T4VoidProjectionPBronze",
+      "item": "Axi A2 Relic (Intact)",
+      "ducats": 50,
+      "credits": 45000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Game/Projections/T4VoidProjectionMagNovaVaultBBronze",
+      "item": "Axi A5 Relic (Intact)",
+      "ducats": 125,
+      "credits": 55000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Game/Projections/T4VoidProjectionBaroAkmagnusPrimeBronze",
+      "item": "Axi M5 Relic",
+      "ducats": 125,
+      "credits": 55000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Game/Projections/T4VoidProjectionVoltOdonataPrimeBronze",
+      "item": "Axi V8 Relic (Intact)",
+      "ducats": 125,
+      "credits": 55000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Game/Projections/T3VoidProjectionVoltOdonataPrimeBronze",
+      "item": "Neo O1 Relic (Intact)",
+      "ducats": 125,
+      "credits": 55000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/LisetPropCleaningDroneBaro",
+      "item": "Ki'teer Domestik Drone",
+      "ducats": 700,
+      "credits": 500000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/Plushies/PlushyBaro",
+      "item": "Plushy Baro",
+      "ducats": 100,
+      "credits": 125000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/ImageBaroKiteer",
+      "item": "Baro Ki'teer Glyph",
+      "ducats": 80,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/BaroKiTeerBobbleHead",
+      "item": "Noggle Statue - Baro Ki'teer",
+      "ducats": 70,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/AvatarImageBaruukDoanStyle",
+      "item": "Baruuk Doan Silhouette Glyph",
+      "ducats": 75,
+      "credits": 60000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Pacifist/BaruukImmortalSkin",
+      "item": "Baruuk Immortal Skin",
+      "ducats": 550,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/LisetPropCorpusBasilisk",
+      "item": "Basilisk Fighter Decoration",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/LisetPropCleaningDroneBeachcomber",
+      "item": "Liset Prop Cleaning Drone Beachcomber",
+      "ducats": 800,
+      "credits": 625000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/BekranZaftBucketBroom",
+      "item": "Bekran Zaft's Equipment",
+      "ducats": 100,
+      "credits": 125000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Hoverboard/HoverboardStickerBaroA",
+      "item": "Blue Ki'teer Safari K-Drive Scrawl",
+      "ducats": 75,
+      "credits": 75000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/KavatBust",
+      "item": "Bronze Kavat Bust",
+      "ducats": 220,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/KubrowBust",
+      "item": "Bronze Kubrow Bust",
+      "ducats": 220,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Dragon/ChromaAlternateSkin",
+      "item": "Chroma Immortal Skin",
+      "ducats": 550,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/BoredTennoPoster",
+      "item": "Bored Tenno Poster",
+      "ducats": 90,
+      "credits": 120000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/BaroPlanter",
+      "item": "Clatharc Planter",
+      "ducats": 125,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/MeleeDangles/InfestedMeleeDangle",
+      "item": "Coccyst Sugatra",
+      "ducats": 250,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sigils/EventSigilScarletSpear",
+      "item": "Event Sigil Scarlet Spear",
+      "ducats": 45,
+      "credits": 45000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/Seasonal/AvatarImageGlyphCookieKavat",
+      "item": "Cookie Kavat Glyph",
+      "ducats": 80,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/Seasonal/AvatarImageGlyphCookieKubrow",
+      "item": "Cookie Kubrow Glyph",
+      "ducats": 80,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/Factions/GlyphFactionCorpus",
+      "item": "Glyph Faction Corpus",
+      "ducats": 70,
+      "credits": 55000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Recipes/Components/CorruptedBombardBallBlueprint",
+      "item": "Corrupted Bombard Specter Blueprint",
+      "ducats": 100,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Restoratives/Consumable/CorruptedHeavyGunnerBall",
+      "item": "5x Corrupted Heavy Gunner Specter",
+      "ducats": 100,
+      "credits": 40000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/LisetPropGrineerCutter",
+      "item": "Cutter Fighter Decoration",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/VTHalloweenDarkSword",
+      "item": "Dark Sword Day of the Dead Skin",
+      "ducats": 320,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/AshLeverianLiosPistol",
+      "item": "De Nas Pistol Skin",
+      "ducats": 400,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/TarotCardTennoConH",
+      "item": "Tarot Card Tenno Con H",
+      "ducats": 75,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/TarotCardTennoConA",
+      "item": "Deimos Fass Prex",
+      "ducats": 75,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/TarotCardTennoConD",
+      "item": "Tarot Card Tenno Con D",
+      "ducats": 75,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/TarotCardTennoConF",
+      "item": "Deimos Jugulus Prex",
+      "ducats": 75,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/TarotCardTennoConJ",
+      "item": "Deimos Kymaeros Prex",
+      "ducats": 75,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/TarotCardTennoConE",
+      "item": "Tarot Card Tenno Con E",
+      "ducats": 75,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/TarotCardTennoConG",
+      "item": "Deimos Saxum Prex",
+      "ducats": 75,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/TarotCardTennoConB",
+      "item": "Tarot Card Tenno Con B",
+      "ducats": 75,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/TarotCardTennoConC",
+      "item": "Deimos Veolicpod Prex",
+      "ducats": 75,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/Plushies/PlushyDesertSkate",
+      "item": "Desert Skate Floof",
+      "ducats": 125,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Clan/BaroStalkerBadgeItem",
+      "item": "Baro Stalker Badge Item",
+      "ducats": 55,
+      "credits": 60000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Camo/DesertDirigaSkin",
+      "item": "Driga Desert-Camo Skin",
+      "ducats": 225,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/OrbiterPictureFrameBaro",
+      "item": "Display - Argyle",
+      "ducats": 100,
+      "credits": 75000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/SummerGameFestPoster",
+      "item": "Dog Days Protea Display",
+      "ducats": 90,
+      "credits": 125000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/LisetPropCleaningDroneDuviri",
+      "item": "Domestik Dais Drone",
+      "ducats": 800,
+      "credits": 650000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Scarves/LisetScarf",
+      "item": "Domus Syandana",
+      "ducats": 600,
+      "credits": 400000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/EraHypnosisPoster",
+      "item": "Era Hypnosis Poster",
+      "ducats": 100,
+      "credits": 110000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Halloween/HalloweenDread",
+      "item": "Halloween Dread",
+      "ducats": 300,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sigils/1999DrippySigil",
+      "item": "Drippy Sigil",
+      "ducats": 50,
+      "credits": 45000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Weapons/DualSword/DualRibbonKamasSkin",
+      "item": "Dual Ribbon Kamas Skin",
+      "ducats": 350,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/BaroKiTeerDecorationD",
+      "item": "Dvad Luxxum Ornament",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/ElixisLatronPistol",
+      "item": "Elixis Latron Pistol",
+      "ducats": 400,
+      "credits": 215000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/SuitCustomizations/ColourPickerTwitchBItemA",
+      "item": "Eminence",
+      "ducats": 220,
+      "credits": 220000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Game/ActionFigureDioramas/EmpyreanRegionADiorama",
+      "item": "Empyrean Vignette",
+      "ducats": 155,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/Factions/GlyphFactionEntrati",
+      "item": "Glyph Faction Entrati",
+      "ducats": 99,
+      "credits": 1900
+    },
+    {
+      "uniqueName": "/Lotus/Types/StoreItems/Packages/VTEosArmourBundle",
+      "item": "Eos Prime Armor Set",
+      "ducats": 285,
+      "credits": 260000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/VTEos/VTEosChestArmor",
+      "item": "Eos Prime Chest Plate",
+      "ducats": 125,
+      "credits": 75000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/ErraBobbleHead",
+      "item": "Noggle Statue - Erra",
+      "ducats": 75,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/AvatarImageExcaliburActionProto",
+      "item": "Avatar Image Excalibur Action Proto",
+      "ducats": 75,
+      "credits": 60000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/ExcaliburArchwingBobbleHead",
+      "item": "Noggle Statue - Excalibur With Odonata",
+      "ducats": 90,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Archwing/GrendelArchwingSkin",
+      "item": "Grendel Archwing Skin",
+      "ducats": 400,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/Plushies/Deimos/PlushySunMonsterCommon",
+      "item": "Plushy Sun Monster Common",
+      "ducats": 150,
+      "credits": 125000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/LisetPropGrineerFlak",
+      "item": "Flak Fighter Decoration",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Glass/GaraAlternateSkin",
+      "item": "Gara Alternate Skin",
+      "ducats": 550,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/GarvLatroxPoster",
+      "item": "Garv & Latrox Poster",
+      "ducats": 80,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Clan/BaroKavatBadgeItem",
+      "item": "Glaring Emblem",
+      "ducats": 50,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sigils/BaroKavatSigil",
+      "item": "Glaring Sigil",
+      "ducats": 55,
+      "credits": 45000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Corpus/LongGuns/CrpFreezeRay/Vandal/CrpFreezeRayVandalRifle",
+      "item": "Glaxion Vandal",
+      "ducats": 475,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/SummerSolstice/SummerSolsticeGorgon",
+      "item": "Gorgon Towsun Skin",
+      "ducats": 300,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Grineer/LongGuns/GrnOrokinRifle/GrnOrokinRifleWeapon",
+      "item": "Grn Orokin Rifle Weapon",
+      "ducats": 675,
+      "credits": 625000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/GaussTowerOfAltraDeco",
+      "item": "Gauss Tower Of Altra Deco",
+      "ducats": 110,
+      "credits": 125000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Hoverboard/HoverboardStickerBaroB",
+      "item": "Green Ki'teer Safari K-Drive Scrawl",
+      "ducats": 75,
+      "credits": 75000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Restoratives/Consumable/AssassinBaitC",
+      "item": "Grustrag Three Beacon",
+      "ducats": 200,
+      "credits": 125000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/GrineerTurbines/WraithTurbinesChestArmor",
+      "item": "Harkonar Wraith Chest Armor",
+      "ducats": 300,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Scarves/WraithTurbinesScarf",
+      "item": "Harkonar Wraith Cloak",
+      "ducats": 400,
+      "credits": 500000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/GrineerTurbines/WraithTurbinesLegArmor",
+      "item": "Harkonar Wraith Leg Armor",
+      "ducats": 350,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/GrineerTurbines/WraithTurbinesArmArmor",
+      "item": "Harkonar Wraith Arm Armor",
+      "ducats": 350,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/LisetPropCorpusHarpi",
+      "item": "Liset Prop Corpus Harpi",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Pirate/HydroidAlternateSkin",
+      "item": "Hydroid Immortal Skin",
+      "ducats": 550,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/SummerSolstice/SummerIgnisSkin",
+      "item": "Ignis Towsun Skin",
+      "ducats": 300,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/ClanTech/Chemical/FlameThrowerWraith",
+      "item": "Ignis Wraith",
+      "ducats": 550,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Grineer/Melee/GrnBoomerang/HalikarWraithWeapon",
+      "item": "Halikar Wraith",
+      "ducats": 450,
+      "credits": 350000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/Seasonal/Halloween2019GrendelTreat",
+      "item": "In Mah Belly Glyph",
+      "ducats": 80,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/Plushies/PlushyInaros",
+      "item": "Plushy Inaros",
+      "ducats": 120,
+      "credits": 90000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/MiscItems/PhotoboothTileInarosTomb",
+      "item": "Inaros Tomb Scene",
+      "ducats": 325,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/AvatarImageIvaraAction",
+      "item": "Ivara In Action Glyph",
+      "ducats": 75,
+      "credits": 60000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/JavisExperimentsPosterA",
+      "item": "Javis Experiments Poster A",
+      "ducats": 90,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/JavisExperimentsPosterD",
+      "item": "Javis Experiments Poster D",
+      "ducats": 90,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/JavisExperimentsPosterC",
+      "item": "Javis Experiments Poster C",
+      "ducats": 90,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/JavisExperimentsPosterB",
+      "item": "Javis Experiments Poster B",
+      "ducats": 90,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Game/QuartersWallpapers/LavosAlchemistWallpaper",
+      "item": "Javi's Scrawling",
+      "ducats": 275,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/GrendelOrokinDishSet",
+      "item": "Karishh's Dinnerware",
+      "ducats": 110,
+      "credits": 130000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sentinels/Masks/KavatPetMask",
+      "item": "Kavat Sentinel Mask",
+      "ducats": 500,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sentinels/Tails/KavatPetTail",
+      "item": "Kavat Sentinel Tail",
+      "ducats": 400,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sentinels/Wings/KavatPetWings",
+      "item": "Kavat Sentinel Wings",
+      "ducats": 400,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/SuitCustomizations/ColourPickerKiteerItemA",
+      "item": "Baro Ki'teer Colors",
+      "ducats": 150,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/BaroArrow",
+      "item": "Ki'teer Arrow Skin",
+      "ducats": 375,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Operator/Accessories/BaroTiara",
+      "item": "Ki'teer Atmos Diadem",
+      "ducats": 525,
+      "credits": 375000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Operator/Accessories/EarpieceBaroC",
+      "item": "Ki'teer Atmos Earpiece",
+      "ducats": 500,
+      "credits": 400000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Operator/Accessories/BaroMouthPieceA",
+      "item": "Ki'teer Atmos Mask",
+      "ducats": 500,
+      "credits": 400000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Operator/Accessories/BaroVisor",
+      "item": "Ki'teer Atmos Oculus",
+      "ducats": 525,
+      "credits": 375000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/BaroArmour/BaroArmourC",
+      "item": "Ki'teer Chest Plate",
+      "ducats": 150,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Operator/Accessories/BaroHorn",
+      "item": "Ki'teer Cornu Diadem",
+      "ducats": 525,
+      "credits": 375000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Scarves/KazBaroCape",
+      "item": "Ki'teer Diax Syandana",
+      "ducats": 325,
+      "credits": 450000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Operator/Accessories/EarpieceBaroA",
+      "item": "Ki'teer Earpiece",
+      "ducats": 500,
+      "credits": 400000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Effects/BaroEphemeraA",
+      "item": "Ki'teer Ephemera",
+      "ducats": 100,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Restoratives/Consumable/BaroFireWorksCrate",
+      "item": "10x Ki'teer Fireworks",
+      "ducats": 50,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/BaroArmourTwo/BaroArmourTwoC",
+      "item": "Ki'teer Foros Chest Plate",
+      "ducats": 175,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/BaroArmourTwo/BaroArmourTwoL",
+      "item": "Ki'teer Foros Leg Plates",
+      "ducats": 225,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/BaroArmourTwo/BaroArmourTwoA",
+      "item": "Ki'teer Foros Shoulder Plates",
+      "ducats": 310,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/BaroArmourThree/BaroArmourThreeC",
+      "item": "Ki'Teer Greth Chest Plate",
+      "ducats": 350,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/BaroArmourThree/BaroArmourThreeL",
+      "item": "Ki'Teer Greth Leg Plates",
+      "ducats": 400,
+      "credits": 350000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/BaroArmourThree/BaroArmourThreeA",
+      "item": "Ki'Teer Greth Shoulder Plates",
+      "ducats": 400,
+      "credits": 350000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Catbrows/Armor/CatbrowArmorVoidTraderA",
+      "item": "Ki'teer Kavat Armor",
+      "ducats": 500,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Kubrows/Armor/KubrowArmorBaro",
+      "item": "Ki'teer Kubrow Armor",
+      "ducats": 500,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/BaroArmour/BaroArmourL",
+      "item": "Ki'teer Leg Plates",
+      "ducats": 300,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/BaroPedestal",
+      "item": "Baro Pedestal",
+      "ducats": 150,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/MoaPet/BaroMoaPetSkin",
+      "item": "Ki'teer Moa Pet Skin",
+      "ducats": 500,
+      "credits": 325000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/Emotes/BaroEmote",
+      "item": "Ki'teer Presence",
+      "ducats": 0,
+      "credits": 1000000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Scarves/BaroCape2Scarf",
+      "item": "Ki'teer Razza Synadana",
+      "ducats": 400,
+      "credits": 350000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Effects/BaroEphemeraB",
+      "item": "Ki'Teer Reverence Ephemera",
+      "ducats": 250,
+      "credits": 350000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Clan/BaroQuantumBadgeItem",
+      "item": "Ki'teer Sekhara",
+      "ducats": 400,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sentinels/Masks/BaroPetMask",
+      "item": "Ki'teer Sentinel Mask",
+      "ducats": 500,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sentinels/Tails/BaroPetTail",
+      "item": "Ki'teer Sentinel Tail",
+      "ducats": 400,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sentinels/Wings/BaroPetWings",
+      "item": "Ki'teer Sentinel Wings",
+      "ducats": 400,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/BaroArmour/BaroArmourA",
+      "item": "Ki'teer Shoulder Plates",
+      "ducats": 350,
+      "credits": 110000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Operator/Accessories/EarpieceBaroB",
+      "item": "Ki'teer Solo Earpiece",
+      "ducats": 250,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Scarves/SolsticeBaroCape",
+      "item": "Ki'teer Solstice Syandana",
+      "ducats": 425,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Game/QuartersWallpapers/BaroWallpaper",
+      "item": "Ki'teer Stencil",
+      "ducats": 250,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/MeleeDangles/BaroMeleeDangle",
+      "item": "Ki'teer Sugatra",
+      "ducats": 250,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Scarves/BaroCape",
+      "item": "Ki'teer Syandana",
+      "ducats": 500,
+      "credits": 500000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/AvatarImageBaroIcon",
+      "item": "Ki'teer Tribute Glyph",
+      "ducats": 80,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Scarves/BaroCape3Scarf",
+      "item": "Baro Cape3 Scarf",
+      "ducats": 500,
+      "credits": 500000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/VTEos/VTEosALArmor",
+      "item": "Left Eos Prime Shoulder Plates",
+      "ducats": 50,
+      "credits": 75000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/VTEos/VTEosLLArmor",
+      "item": "Left Eos Prime Spurs",
+      "ducats": 65,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/SetThreeWinged/VTSetThreeLegLeftArmor",
+      "item": "Left Prisma Daedalus Knee Plates",
+      "ducats": 65,
+      "credits": 75000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/SetThreeWinged/VTSetThreeArmLeftArmor",
+      "item": "Left Prisma Daedalus Shoulder Guard",
+      "ducats": 65,
+      "credits": 75000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/SetTwoSamurai/VTSetTwoLegLeftArmor",
+      "item": "Left Prisma Edo Knee Plates",
+      "ducats": 100,
+      "credits": 55000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/SetTwoSamurai/VTSetTwoArmLeftArmor",
+      "item": "Left Prisma Edo Shoulder Plates",
+      "ducats": 100,
+      "credits": 55000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Weapons/Staff/TnRibbonStaffSkin",
+      "item": "Tn Ribbon Staff Skin",
+      "ducats": 350,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Magician/LimboImmortalSkin",
+      "item": "Limbo Immortal Skin",
+      "ducats": 550,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Liset/InarosLisetSkin",
+      "item": "Liset Cydonia Skin",
+      "ducats": 400,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Effects/LotusFlowers",
+      "item": "Lotus Flowers",
+      "ducats": 250,
+      "credits": 450000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Clan/Dragon2024BadgeItem",
+      "item": "Lunar Renewal Dragon Emblem",
+      "ducats": 55,
+      "credits": 45000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sigils/WeGameNewYearOxSigil",
+      "item": "Lunar Renewal Ox Sigil",
+      "ducats": 55,
+      "credits": 45000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Clan/CNY2023EmblemItem",
+      "item": "Lunar Renewal Rabbit Emblem",
+      "ducats": 55,
+      "credits": 45000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Clan/CNY2022EmblemItem",
+      "item": "Lunar Renewal Tiger Emblem",
+      "ducats": 55,
+      "credits": 45000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sigils/WeGameNewYearFreeTigerSigil",
+      "item": "Lunar Renewal Tiger Sigil",
+      "ducats": 55,
+      "credits": 45000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/BaroScytheMacheteSkin",
+      "item": "Machete Syachid Skin",
+      "ducats": 375,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Grineer/Melee/GrineerMachetteAndCleaver/WraithMacheteWeapon",
+      "item": "Machete Wraith",
+      "ducats": 410,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/BaroKiTeerDecorationA",
+      "item": "Mahd Luxxum Ornament",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Liset/LisetInsectSkinInaros",
+      "item": "Mantis Cydonia Skin",
+      "ducats": 425,
+      "credits": 320000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Liset/LisetInsectSkinPrimeTrader",
+      "item": "Mantis Prisma Skin",
+      "ducats": 230,
+      "credits": 375000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/VoidTrader/VTDetron",
+      "item": "Mara Detron",
+      "ducats": 500,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Operator/BodySuits/BodySuitNovaEngineer",
+      "item": "Masker's Theodolite Crewsuit",
+      "ducats": 300,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Operator/Hoods/HoodNovaEngineer",
+      "item": "Masker's Theodolite Crewsuit Hood",
+      "ducats": 350,
+      "credits": 375000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Operator/Leggings/LeggingsNovaEngineer",
+      "item": "Masker's Theodolite Crewsuit Leggings",
+      "ducats": 300,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Operator/Sleeves/SleevesNovaEngineer",
+      "item": "Masker's Theodolite Crewsuit Sleeves",
+      "ducats": 300,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Cowgirl/MesaImmortallSkin",
+      "item": "Mesa Immortal Skin",
+      "ducats": 550,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Harlequin/MirageAlternateSkin",
+      "item": "Mirage Immortal Skin",
+      "ducats": 550,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/NecraArmor/NecraArmorC",
+      "item": "Mulciber Chest Plate",
+      "ducats": 325,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/NecraArmor/NecraArmorA",
+      "item": "Mulciber Shoulder Plate",
+      "ducats": 315,
+      "credits": 215000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/NecraArmor/NecraArmorL",
+      "item": "Mulciber Leg Plate",
+      "ducats": 300,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Game/KubrowPet/Patterns/KubrowPetPatternPrimeTraderA",
+      "item": "Nexus Fur Pattern",
+      "ducats": 150,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/Types/StoreItems/Packages/KavatColorPackNexus",
+      "item": "Nexus Gene-Masking Kit",
+      "ducats": 200,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Infestation/NidusAlternateSkin",
+      "item": "Nidus Immortal Skin",
+      "ducats": 550,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/ElixisNikana",
+      "item": "Nikana Elixis Skin",
+      "ducats": 375,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/ItzalArchwingBobbleHead",
+      "item": "Itzal Archwing Bobble Head",
+      "ducats": 90,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/ZealoidPrelateBobbleHead",
+      "item": "Zealoid Prelate Bobble Head",
+      "ducats": 75,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/OctaviaBobbleHead",
+      "item": "Octavia Bobble Head",
+      "ducats": 50,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/ElixisOdonataSkin",
+      "item": "Odonata Elixis Skin",
+      "ducats": 350,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/ElixisOpticor",
+      "item": "Opticor Elixis Skin",
+      "ducats": 325,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Corpus/LongGuns/CrpBFG/Vandal/VandalCrpBFG",
+      "item": "Opticor Vandal",
+      "ducats": 650,
+      "credits": 550000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/OwlOrdisStatue",
+      "item": "Owl Ordis Statue",
+      "ducats": 350,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/MiscItems/PhotoboothTileOrokinExtraction",
+      "item": "Orokin Tower Extraction Scene",
+      "ducats": 325,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Clan/BaroKubrowBadgeItem",
+      "item": "Pack Leader Emblem",
+      "ducats": 50,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sigils/BaroKubrowSigil",
+      "item": "Pack Leader Sigil",
+      "ducats": 55,
+      "credits": 45000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/ElixisBallasSword",
+      "item": "Paracesis Elixis Skin",
+      "ducats": 350,
+      "credits": 350000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Events/InfQuantaInfestedAladV",
+      "item": "Paracyst Zebra Skin",
+      "ducats": 325,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/ParazonPoster",
+      "item": "Parazon Poster",
+      "ducats": 100,
+      "credits": 125000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Promo/Warframe/PromoParis",
+      "item": "Paris Abra Skin",
+      "ducats": 315,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/CosmeticEnhancers/Peculiars/EvilSpiritMod",
+      "item": "Peculiar Audience",
+      "ducats": 250,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/PedistalPrime",
+      "item": "Pedestal Prime",
+      "ducats": 0,
+      "credits": 1000000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Corpus/Pistols/CrpHandRL/PrismaAngstrum",
+      "item": "Prisma Angstrum",
+      "ducats": 475,
+      "credits": 210000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/PrismaArrow",
+      "item": "Prisma Arrows",
+      "ducats": 350,
+      "credits": 75000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/FurisArmor/PrismaFurisCArmor",
+      "item": "Prisma Avia Chest Plate",
+      "ducats": 250,
+      "credits": 220000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/FurisArmor/PrismaFurisAArmor",
+      "item": "Prisma Avia Shoulder Plate",
+      "ducats": 300,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/FurisArmor/PrismaFurisLArmor",
+      "item": "Prisma Avia Ankle Plate",
+      "ducats": 225,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/KubrowKavatLowPolyPoster",
+      "item": "Prisma Companion Poster",
+      "ducats": 90,
+      "credits": 110000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/SetThreeWinged/VTSetThreeChestArmor",
+      "item": "Prisma Daedalus Chest Plate",
+      "ducats": 150,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Grineer/Melee/GrineerMachetteAndCleaver/PrismaDualCleavers",
+      "item": "Prisma Dual Cleavers",
+      "ducats": 490,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Tenno/Archwing/Primary/ArchwingHeavyPistols/Prisma/PrismaArchHeavyPistols",
+      "item": "Prisma Dual Decurions",
+      "ducats": 525,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/SetTwoSamurai/VTSetTwoChestArmor",
+      "item": "Prisma Edo Chest Plate",
+      "ducats": 225,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Grineer/LongGuns/VoidTraderGorgon/VTGorgon",
+      "item": "Prisma Gorgon",
+      "ducats": 600,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/VoidTrader/PrismaGrakata",
+      "item": "Prisma Grakata",
+      "ducats": 610,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Grineer/LongGuns/GrineerLeverActionRifle/PrismaGrinlokWeapon",
+      "item": "Prisma Grinlok",
+      "ducats": 500,
+      "credits": 220000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Scarves/VTHornSkullScarf",
+      "item": "Prisma Hecate Syandana",
+      "ducats": 250,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sentinels/Wings/PrismaJetWings",
+      "item": "Prisma Jet Sentinel Wings",
+      "ducats": 300,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/AvatarImageLowPolyKavat",
+      "item": "Prisma Kavat Glyph",
+      "ducats": 80,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sentinels/Tails/PrismaFishTail",
+      "item": "Prisma Koi Sentinel Tail",
+      "ducats": 200,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/AvatarImageLowPolyKubrow",
+      "item": "Prisma Kubrow Glyph",
+      "ducats": 80,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/TnLatronArmor/TnLatronChestArmorPrisma",
+      "item": "Prisma Latron Chest Plate",
+      "ducats": 275,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/TnLatronArmor/TnLatronArmArmorPrisma",
+      "item": "Prisma Latron Shoulder Plate",
+      "ducats": 325,
+      "credits": 220000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/TnLatronArmor/TnLatronLegArmorPrisma",
+      "item": "Prisma Latron Leg Plate",
+      "ducats": 300,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Corpus/Bow/Longbow/PrismaLenz/PrismaLenzWeapon",
+      "item": "Prisma Lenz Weapon",
+      "ducats": 575,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Liset/LisetSkinVoidTrader",
+      "item": "Liset Prisma Skin",
+      "ducats": 120,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sigils/PrismaLotusVinesSigil",
+      "item": "Prisma Lotus Vines Sigil",
+      "ducats": 55,
+      "credits": 60000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Clan/PrismaLotusEmblem",
+      "item": "Prisma Lotus Emblem",
+      "ducats": 80,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sigils/PrismaLotusFlamesSigil",
+      "item": "Prisma Lotus Flames Sigil",
+      "ducats": 55,
+      "credits": 60000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/AvatarImageBaroTwoIcon",
+      "item": "Prisma Lotus Glyph",
+      "ducats": 80,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sigils/PrismaLotusSigil",
+      "item": "Prisma Lotus Sigil",
+      "ducats": 55,
+      "credits": 45000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Grineer/Melee/GrineerMachetteAndCleaver/PrismaMachete",
+      "item": "Prisma Machete",
+      "ducats": 400,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sentinels/Masks/PrismaMechHeadMask",
+      "item": "Prisma Mech Head Sentinel Mask",
+      "ducats": 175,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/Halloween2014Wings/PrismaNaberusArmArmor",
+      "item": "Prisma Naberus",
+      "ducats": 220,
+      "credits": 140000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Corpus/Melee/KickAndPunch/PrismaObex",
+      "item": "Prisma Obex",
+      "ducats": 500,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Corpus/Melee/CrpTonfa/CrpPrismaTonfa",
+      "item": "Prisma Ohma",
+      "ducats": 450,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Kubrows/Armor/KubrowArmorPrisma",
+      "item": "Prisma Rostam Kubrow Armor",
+      "ducats": 400,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Liset/LisetBlueSkySkinPrimeTrader",
+      "item": "Scimitar Prisma Skin",
+      "ducats": 210,
+      "credits": 450000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Sentinels/SentinelPowersuits/PrismaShadePowerSuit",
+      "item": "Prisma Shade",
+      "ducats": 500,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sigils/PrimeTraderSigil",
+      "item": "Prisma Sigil ",
+      "ducats": 50,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/VoidTrader/PrismaSkana",
+      "item": "Prisma Skana",
+      "ducats": 510,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Corpus/LongGuns/CorpusUMP/PrismaCorpusUMP",
+      "item": "Prisma Tetra",
+      "ducats": 400,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sigils/ThraxSigil",
+      "item": "Thrax Sigil",
+      "ducats": 50,
+      "credits": 55000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Grineer/Pistols/GrineerBulbousSMG/Prisma/PrismaTwinGremlinsWeapon",
+      "item": "Prisma Twin Gremlins",
+      "ducats": 500,
+      "credits": 220000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Scarves/PrismaRazorScarf",
+      "item": "Prisma Uru Syandana",
+      "ducats": 350,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Tenno/Archwing/Melee/VoidTraderArchsword/VTArchSwordWeapon",
+      "item": "Prisma Veritux",
+      "ducats": 550,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Scarves/VTDinoSpikeScarf",
+      "item": "Prisma Yamako Syandana",
+      "ducats": 400,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/ClanTech/Energy/VandalElectroProd",
+      "item": "Prova Vandal",
+      "ducats": 410,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/BaroKiTeerDecorationF",
+      "item": "Puspa Luxxum Ornament",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/MeleeDangles/FireMeleeDangle",
+      "item": "Pyra Sugatra",
+      "ducats": 100,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/VTQuanta",
+      "item": "Quanta Aufeis Skin",
+      "ducats": 300,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Corpus/LongGuns/CrpShockRifle/QuantaVandal",
+      "item": "Quanta Vandal",
+      "ducats": 450,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Scarves/HornSkullScarf",
+      "item": "Rakta Syandana",
+      "ducats": 325,
+      "credits": 350000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Weapons/Rapier/CrpRapierSkin",
+      "item": "Rapier Tributaker Skin",
+      "ducats": 375,
+      "credits": 400000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/RathuumEventPoster",
+      "item": "Rathuum Event Poster",
+      "ducats": 90,
+      "credits": 125000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/VTRedeemerSkin",
+      "item": "Redeemer Elixis Skin",
+      "ducats": 325,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/MeleeDangles/MoonWarfanSugatraMeleeDangle",
+      "item": "Renayla Sugatra",
+      "ducats": 250,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Leverian/NezhaLeverian/NezhaLeverianPolearm",
+      "item": "Reshantur Cult Spear Skin",
+      "ducats": 350,
+      "credits": 325000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Scarves/NezhaLeverianCape",
+      "item": "Reshantur Cult Syandana",
+      "ducats": 400,
+      "credits": 350000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/HeartOfDeimosAlbumCoverPoster",
+      "item": "Heart Of Deimos Album Cover Poster",
+      "ducats": 80,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sigils/RhinoDeluxeSigil",
+      "item": "Rhino Palatine Sigil",
+      "ducats": 45,
+      "credits": 55000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/VTEos/VTEosARArmor",
+      "item": "Right Eos Prime Shoulder Plates",
+      "ducats": 50,
+      "credits": 75000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/VTEos/VTEosLRArmor",
+      "item": "Right Eos Prime Spurs",
+      "ducats": 65,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/SetThreeWinged/VTSetThreeLegRightArmor",
+      "item": "Right Prisma Daedalus Knee Plates",
+      "ducats": 65,
+      "credits": 75000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/SetThreeWinged/VTSetThreeArmRightArmor",
+      "item": "Right Prisma Daedalus Shoulder Guard",
+      "ducats": 65,
+      "credits": 75000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/SetTwoSamurai/VTSetTwoLegRightArmor",
+      "item": "Right Prisma Edo Knee Plates",
+      "ducats": 100,
+      "credits": 55000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/SetTwoSamurai/VTSetTwoArmRightArmor",
+      "item": "Right Prisma Edo Shoulder Plates",
+      "ducats": 100,
+      "credits": 55000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/Factions/GlyphFactionScaldra",
+      "item": "Glyph Faction Scaldra",
+      "ducats": 93,
+      "credits": 1906
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Liset/LisetBlueSkySkinInaros",
+      "item": "Scimitar Cydonia Skin",
+      "ducats": 375,
+      "credits": 340000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Operator/Accessories/AshLevarianTiara",
+      "item": "Scoria Diadem",
+      "ducats": 550,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/Leverian/IvaraLeverianPovisRecordsDecoration",
+      "item": "Secret History Replica",
+      "ducats": 75,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/BaroKiTeerDecorationG",
+      "item": "Sima Luxxum Ornament",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/ElixisSonicor",
+      "item": "Sonicor Exilis Skin",
+      "ducats": 380,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Restoratives/Consumable/AssassinBait",
+      "item": "Stalker Beacon",
+      "ducats": 200,
+      "credits": 125000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Corpus/LongGuns/Machinegun/SupraVandal",
+      "item": "Supra Vandal",
+      "ducats": 500,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/LisetPropGrineerTaktis",
+      "item": "Liset Prop Grineer Taktis",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/TnShinaiArmor/TnShinaiArmorC",
+      "item": "Tannukai Chest Plates",
+      "ducats": 300,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/TnShinaiArmor/TnShinaiArmorL",
+      "item": "Tannukai Leg Plates",
+      "ducats": 275,
+      "credits": 115000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Tenno/Melee/Swords/TnShinaiSword/TnShinaiSwordSkin",
+      "item": "Tn Shinai Sword Skin",
+      "ducats": 375,
+      "credits": 280000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Armor/TnShinaiArmor/TnShinaiArmorA",
+      "item": "Tannukai Shoulder Plates",
+      "ducats": 315,
+      "credits": 125000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Sentinels/Skins/DesertTaxonSkin",
+      "item": "Taxon Desert-Camo Skin",
+      "ducats": 200,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/Factions/GlyphFactionTechrot",
+      "item": "Glyph Faction Techrot",
+      "ducats": 98,
+      "credits": 1901
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/OstronHeadStatue",
+      "item": "Ostron Head Statue",
+      "ducats": 125,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/LisetPropOstRugBaro",
+      "item": "Tenno Kindred Rug",
+      "ducats": 225,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/TNWTeshinBobbleHead",
+      "item": "T N W Teshin Bobble Head",
+      "ducats": 75,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Operator/Hoods/HoodDuviriOperator",
+      "item": "The Stranger's Hood (Operator)",
+      "ducats": 550,
+      "credits": 500000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/ElixisTiberon",
+      "item": "Elixis Tiberon",
+      "ducats": 315,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/VoidTrader/ElixisTigris",
+      "item": "Tigris Elixis Skin",
+      "ducats": 300,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Operator/Hoods/JaviExecutionHood",
+      "item": "Javi Execution Hood",
+      "ducats": 450,
+      "credits": 450000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/SummerSolstice/SummerSolsticeTwinGrakatas",
+      "item": "Twin Grakatas Towsun Skin",
+      "ducats": 300,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/UmbraPedestal",
+      "item": "Umbra Pedestal",
+      "ducats": 0,
+      "credits": 1000000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Grineer/Melee/GunBlade/GrnGunBlade/GrnGunblade",
+      "item": "Vastilok",
+      "ducats": 550,
+      "credits": 325000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Tenno/Melee/Warfan/TnMoonWarfan/MoonWarfanWeapon",
+      "item": "Moon Warfan Weapon",
+      "ducats": 410,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/TNWVesoBobbleHead",
+      "item": "T N W Veso Bobble Head",
+      "ducats": 75,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/BaroKiTeerDecorationH",
+      "item": "Vez Luxxum Ornament",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Grineer/Pistols/WraithSingleViper/WraithSingleViper",
+      "item": "Viper Wraith",
+      "ducats": 400,
+      "credits": 75000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/AvatarImageVoidAngelBaro",
+      "item": "Avatar Image Void Angel Baro",
+      "ducats": 80,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/SuitCustomizations/ColourPickerKiteerItemB",
+      "item": "Colour Picker Kiteer Item B",
+      "ducats": 200,
+      "credits": 250000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Events/OgrisOldSchool",
+      "item": "Ogris Old School",
+      "ducats": 350,
+      "credits": 325000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/Plushies/Deimos/PlushyMoonMonsterCommon",
+      "item": "Plushy Moon Monster Common",
+      "ducats": 150,
+      "credits": 125000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/TwinSnakesGlyph",
+      "item": "Vome-Fass Glyph",
+      "ducats": 80,
+      "credits": 50000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/StoreItems/AvatarImages/Warframes/VorunaActionGlyph",
+      "item": "Voruna Action Glyph",
+      "ducats": 75,
+      "credits": 60000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Grineer/LongGuns/GrineerSniperRifle/VulkarWraith",
+      "item": "Vulkar Wraith",
+      "ducats": 450,
+      "credits": 300000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/LisetPropCorpusWeaver",
+      "item": "Liset Prop Corpus Weaver",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Scarves/SolsticeNelumboCape",
+      "item": "Solstice Nelumbo Cape",
+      "ducats": 325,
+      "credits": 275000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Wisp/WispAlternateSkin",
+      "item": "Wisp Alternate Skin",
+      "ducats": 550,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Catbrows/Armor/CatbrowArmorHalloweenA",
+      "item": "Wysar Day Of The Dead Kavat Armor",
+      "ducats": 400,
+      "credits": 175000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/TarotCardTennoConI",
+      "item": "Xaku Prex",
+      "ducats": 75,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Liset/Gyroscope/LisetGyroscopeSkinPrimeTrader",
+      "item": "Xiphos Prisma Skin",
+      "ducats": 220,
+      "credits": 400000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/ShipDecos/BaroKiTeerDecorationC",
+      "item": "Zag Luxxum Ornament",
+      "ducats": 100,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Restoratives/Consumable/AssassinBaitB",
+      "item": "Zanuka Hunter Beacon",
+      "ducats": 200,
+      "credits": 125000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Tengu/ZephyrAlternateSkin",
+      "item": "Zephyr Immortal Skin",
+      "ducats": 550,
+      "credits": 100000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Weapons/Tenno/Pistols/ConclaveLeverPistol/ConclaveLeverPistol",
+      "item": "Zylok",
+      "ducats": 500,
+      "credits": 200000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/SongItems/TenthAnniversaryLoginSongItem",
+      "item": "Tenth Anniversary Login Song Item",
+      "ducats": 145,
+      "credits": 165000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/SongItems/AbyssofDagathSongItem",
+      "item": "Abyssof Dagath Song Item",
+      "ducats": 150,
+      "credits": 155000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/SongItems/ZarimanLoginSongItem",
+      "item": "Zariman Login Song Item",
+      "ducats": 160,
+      "credits": 180000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/SongItems/DanteUnboundLoginSongItem",
+      "item": "Dante Unbound Login Song Item",
+      "ducats": 150,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/SongItems/EmpyreanSongItem",
+      "item": "Empyrean Song Item",
+      "ducats": 160,
+      "credits": 155000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/SongItems/DeimosLoginSongItem",
+      "item": "Deimos Login Song Item",
+      "ducats": 155,
+      "credits": 160000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/SongItems/JadeShadowsLoginSongItem",
+      "item": "Jade Shadows Login Song Item",
+      "ducats": 150,
+      "credits": 170000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/SongItems/WhispersInTheWallLoginSongItem",
+      "item": "Whispers In The Wall Login Song Item",
+      "ducats": 165,
+      "credits": 170000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/SongItems/CorpusRailjackLoginSongItem",
+      "item": "Corpus Railjack Login Song Item",
+      "ducats": 150,
+      "credits": 165000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/SongItems/LotusEatersSongItem",
+      "item": "The Lotus Eaters Login Music",
+      "ducats": 165,
+      "credits": 150000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Items/SongItems/KuvaLichLoginSongItem",
+      "item": "Kuva Lich Login Song Item",
+      "ducats": 140,
+      "credits": 170000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/Keys/MummyQuestKeyBlueprint",
+      "item": "Sands Of Inaros Blueprint",
+      "ducats": 100,
+      "credits": 25000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Upgrades/Skins/Effects/FootstepsMaple",
+      "item": "Fae Path Ephemera",
+      "ducats": 15,
+      "credits": 1000
+    },
+    {
+      "uniqueName": "/Lotus/StoreItems/Types/BoosterPacks/BaroTreasureBox",
+      "item": "Baro Treasure Box",
+      "ducats": 0,
+      "credits": 50000
+    }
+  ],
+  "psId": "687809030379266d790495c6404",
+  "endString": "6d 15h 15m 49s",
+  "initialStart": "1970-01-01T00:00:00.000Z",
+  "schedule": []
+}
