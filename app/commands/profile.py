@@ -108,7 +108,7 @@ class ProfileData():
     def __init__(self, username, platform):
         self.wf_official_url = f"https://content{platform}.warframe.com/dynamic/getProfileViewingData.php"
         # self.wf_status = requests.get(f"{self.wf_status_url}{username}").json()
-        self.wf_official = requests.get(f"{self.wf_official_url}?n={username}").json()
+        self.wf_official = requests.get(f"{self.wf_official_url}?playerId={username}").json()
 
     @property
     def username(self) -> str:
