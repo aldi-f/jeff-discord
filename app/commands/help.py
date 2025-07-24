@@ -30,6 +30,7 @@ class help(commands.Cog):
             "**-fissure** (optional)<rj|sp>: Shows the current fissures\n\n" +\
             "**-mod** <mod-name>: Shows the mod stats and market price\n\n" +\
             "**-nightwave**: Shows current nightwave quests\n\n" +\
+            "**-pricecheck**: Scan an image for prime parts and their price\n\n" +\
             "**-prime** <prime-part>: Finds market price and what drops it\n\n" +\
             "**[ALPHA]-profile** <ingame-name>: Get warframe user profile stats\n\n" +\
             "**-pset** <prime-name>: Finds market prices for all parts\n\n" +\

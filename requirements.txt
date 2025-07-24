@@ -6,3 +6,5 @@ requests
 luadata==1.0.5
 warframe-market.py==1.0.3
 python-Levenshtein
+openai
+cachetools
