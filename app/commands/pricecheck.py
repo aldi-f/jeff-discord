@@ -116,14 +116,14 @@ async def scrape_screenshot(image_url: str) -> PrimeParts | None:
         client = OpenAI(api_key=ROUTER_API_KEY, base_url="https://openrouter.ai/api/v1")
         try:
             response = client.chat.completions.parse(
-                model="moonshotai/kimi-vl-a3b-thinking:free",
+                model="google/gemini-2.0-flash-001",
                 messages=generate_prompt(image_url),
                 extra_body={
                     "provider": {
                         "require_parameters": True,
                     }
                 },
-                # response_format=PrimeParts,
+                response_format=PrimeParts,
                 n=1,
             )
             print(f"Response: {response.choices[0].message.content}")
