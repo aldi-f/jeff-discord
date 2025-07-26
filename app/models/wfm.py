@@ -29,6 +29,42 @@ class PriceCheck:
             name = name.replace("\'","")
 
         return "_".join(name.split(" "))
+    
+
+    @classmethod
+    def format_output(cls, orders: list[int|set[int,int]]) -> str:
+        """
+        Format the output of the price check.
+        Supports both orders with just prices and orders with quantities.
+        """
+        if not orders:
+            return "(N/A)"
+        
+        if isinstance(orders[0], int):
+            return f"({', '.join([str(price) for price in orders])}){cls.platinum}"
+        
+        return " | ".join([f"{price}p × ({quantity})" for price,quantity in orders])
+
+    
+    async def check_raw(self,
+        rank: int=0,
+        charges: int=3,
+        subtype: Subtype|None=None):
+        """
+        Check the raw price of an item, return a list with the prices
+        """
+        orders = await self.client.get_top_orders_for_item(
+            slug=self.slug,
+            rank=rank,
+            charges=charges,
+            subtype=subtype
+        )
+        orders = [order.platinum for order in orders.data.sell]
+
+        if len(orders) == 0:
+            return []
+        
+        return orders
 
     async def check(self,
         rank: int=0,
