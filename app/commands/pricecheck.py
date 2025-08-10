@@ -164,31 +164,38 @@ class PriceCheckCog(commands.Cog):
             await ctx.send(embed=error)
             return
 
-        attachment = ctx.message.attachments[0]
-        if not attachment.content_type.startswith("image"):
+        valid_attachments = []
+        for attachment in ctx.message.attachments:
+            if attachment.content_type and attachment.content_type.startswith("image"):
+                valid_attachments.append(attachment)
+
+        if len(valid_attachments) == 0:
             error = discord.Embed(description="Provide a valid image file")
             await ctx.send(embed=error)
             return
 
         async with ctx.typing():
             start = time.time()
-            image_url = attachment.url
-            scrape = await self.scraper.scrape(image_url)
-            if scrape is None:
-                error = discord.Embed(description="Failed to scrape the screenshot.")
-                await ctx.send(embed=error)
-                return
+            valid_items: set[ItemShortModel] = set()
+            for attachment in valid_attachments:
+                image_url = attachment.url
+                scrape = await self.scraper.scrape(image_url)
+                if scrape is None:
+                    continue
 
-            items = await self.validator.validate_items(scrape.items)
-            if not items:
-                error = discord.Embed(description="No valid items found in the screenshot.")
+                items = await self.validator.validate_items(scrape.items)
+                valid_items.update(items)
+
+            if len(valid_items) == 0:
+                error = discord.Embed(description="No valid items found in the screenshots.")
                 await ctx.send(embed=error)
                 return
+                
 
             embed = discord.Embed(title="Price Check", color=discord.Color.blue())
             message = await ctx.send(f"Found {len(items)} items. Doing Price checks...")
             items_with_price = []
-            for i, item in enumerate(items):
+            for i, item in enumerate(valid_items):
                 try:
                     price_check = PriceCheck(item=item.slug)
                     price_list = await price_check.check_raw()
@@ -200,7 +207,9 @@ class PriceCheckCog(commands.Cog):
                     await asyncio.sleep(1)
                     await message.edit(content=f"Found {len(items)} items. Doing Price checks... ({i + 1}/{len(items)})")
 
-            # sort by most expensive first (first element of list), then by average of all elements of the list
+            # sort in this order:
+            # most expensive first (first element of list),
+            # most expensive average of all elements of the list
             items_with_price.sort(key=lambda x: (x[1][0] if len(x[1]) != 0 else 0,
                                                 sum(x[1]) / len(x[1]) if len(x[1]) != 0 else 0
                                                 ), reverse=True)
