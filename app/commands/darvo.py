@@ -22,7 +22,7 @@ class darvo(commands.Cog):
         data = json.loads(response.text)[0]
         expiration = int(datetime.strptime(data['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
         set_embed = discord.Embed(
-            description=f"## {data['item']}\n### {data['total']-data['sold']}/{data['total']} left\nPrice: ~~{data['originalPrice']}~~ {data['salePrice']}<:Platinum:992917150358589550> ({data['discount']}% off)\n\nEnds: <t:{expiration}:R>",
+            description=f"## {data['item']}\n### {data['total']-data['sold']}/{data['total']} left\nPrice: ~~{data['originalPrice']}~~ {data['salePrice']}<:Platinum:992917150358589550> ({data['discount']}% off)\n\nEnds: <t:{expiration}:F>",
             title="Darvo's Daily Deal"
         )
 
