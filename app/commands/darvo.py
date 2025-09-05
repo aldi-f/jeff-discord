@@ -20,13 +20,11 @@ class darvo(commands.Cog):
     async def darvo(self, ctx: commands.Context):
         response = requests.get(url)
         data = json.loads(response.text)[0]
+        expiration = int(datetime.strptime(data['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
         set_embed = discord.Embed(
-            description=f"## {data['item']}\n### {data['total']-data['sold']}/{data['total']} left\nPrice: ~~{data['originalPrice']}~~ {data['salePrice']}<:Platinum:992917150358589550> ({data['discount']}% off)",
+            description=f"## {data['item']}\n### {data['total']-data['sold']}/{data['total']} left\nPrice: ~~{data['originalPrice']}~~ {data['salePrice']}<:Platinum:992917150358589550> ({data['discount']}% off)\n\nEnds: <t:{expiration}:R>",
             title="Darvo's Daily Deal"
         )
-
-        expiration = int(datetime.strptime(data['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
-        set_embed.set_footer(text=f"Ends in <t:{expiration}:R>")
 
         await ctx.send(embed=set_embed)
 

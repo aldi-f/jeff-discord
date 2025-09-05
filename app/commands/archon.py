@@ -75,7 +75,7 @@ class archon(commands.Cog):
 
         embed = discord.Embed(
             title="Archon Hunt",
-            description=f"Boss: {data['boss']}({get_shard(data['boss'])})\nFaction: {data['faction']}",
+            description=f"Boss: {data['boss']}({get_shard(data['boss'])})\nFaction: {data['faction']}\nEnds: <t:{expiration}:R>",
             color=discord.Colour.random()
         )
 
@@ -87,7 +87,7 @@ class archon(commands.Cog):
 
         expiration = int(datetime.strptime(data['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
         embed.set_footer(
-            text=f"Ends: <t:{expiration}:R>\nValid Languages: en, es, fr, it, ko, pl, pt, ru, zh")
+            text=f"Valid Languages: en, es, fr, it, ko, pl, pt, ru, zh")
         await interaction.response.send_message(embed=embed)
 
 

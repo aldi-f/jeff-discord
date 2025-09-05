@@ -52,18 +52,17 @@ class bounty(commands.Cog):
             )
             await ctx.send(embed=err_embed)
             return
+        
+        expiration = int(datetime.strptime(bounties[0]['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
         embed = discord.Embed(
-            title=f"{bounties[0]['syndicate']} Bounties"
+            title=f"{bounties[0]['syndicate']} Bounties",
+            description=f"Rotation ends: <t:{expiration}:R>"
         )
         for job in bounties[0]['jobs']:
             embed.add_field(
                 name=f"[{'-'.join([f'{x}' for x in job['enemyLevels']])}]{job['type']}",
                 value="- "+"\n- ".join(job["rewardPool"]))
 
-        expiration = int(datetime.strptime(bounties[0]['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
-        embed.set_footer(
-            text=f"Rotation ends: <t:{expiration}:R>"
-        )
         await ctx.send(embed=embed)
 
 

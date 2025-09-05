@@ -41,13 +41,13 @@ class baro(commands.Cog):
             for x in data['inventory']:
                 text += f"{x['item']}: \u3000 {x['ducats']}<:Ducat:967433339868950638>| {x['credits']}<:Credits:967435392427106348>\n"
 
+            expiration = int(datetime.strptime(data['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
             embed = discord.Embed(
                 title="Baro Ki'Teer Inventory",
-                description=f"{data['location']}\n\n{text}"
+                description=f"{data['location']}\nLeaving: <t:{expiration}:R>\n\n{text}"
             )
-            expiration = int(datetime.strptime(data['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
             embed.set_footer(
-                text=f"Leaving: <t:{expiration}:R>\nLatency: {round((time.time() - start)*1000)}ms"
+                text=f"Latency: {round((time.time() - start)*1000)}ms"
             )
             await ctx.send(embed=embed)
 
