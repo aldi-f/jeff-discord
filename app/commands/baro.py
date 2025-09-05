@@ -2,6 +2,7 @@ import discord
 import json
 import logging
 import time
+from datetime import datetime
 
 from discord.ext import commands
 from requests import get
@@ -24,10 +25,11 @@ class baro(commands.Cog):
         response = get(f"https://api.warframestat.us/pc/voidTrader")
         data = json.loads(response.text)
 
-        if not data['active']:
+        if not data['inventory']:
             noBaro = discord.Embed(title="Baro Ki'Teer")
+            activation = int(datetime.strptime(data['activation'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
             noBaro.add_field(
-                name=f"Incoming in {data['startString']}",
+                name=f"Incoming: <t:{activation}:R>",
                 value=f"Location: {data['location']}"
             )
 
@@ -43,8 +45,9 @@ class baro(commands.Cog):
                 title="Baro Ki'Teer Inventory",
                 description=f"{data['location']}\n\n{text}"
             )
+            expiration = int(datetime.strptime(data['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
             embed.set_footer(
-                text=f"Latency: {round((time.time() - start)*1000)}ms"
+                text=f"Leaving: <t:{expiration}:R>\nLatency: {round((time.time() - start)*1000)}ms"
             )
             await ctx.send(embed=embed)
 

@@ -2,6 +2,7 @@ import discord
 import json
 import logging
 import time
+from datetime import datetime
 
 from discord import app_commands
 from discord.ext import commands
@@ -45,8 +46,9 @@ class archon(commands.Cog):
                             value=f"{mission['node']}",
                             inline=False)
 
+        expiration = int(datetime.strptime(data['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
         embed.set_footer(
-            text=f"Ends in {data['eta']}\nValid Languages: en, es, fr, it, ko, pl, pt, ru, zh\nTotal Latency: {round((time.time() - start)*1000)}ms\nDownload Latency: {round(download_timer*1000)}ms")
+            text=f"Ends: <t:{expiration}:R>\nValid Languages: en, es, fr, it, ko, pl, pt, ru, zh\nTotal Latency: {round((time.time() - start)*1000)}ms\nDownload Latency: {round(download_timer*1000)}ms")
         await ctx.send(embed=embed)
 
     @app_commands.command(name="archon-hunt", description="Show the current Archon Hunt Rotation")
@@ -83,8 +85,9 @@ class archon(commands.Cog):
                             value=f"{mission['node']}",
                             inline=False)
 
+        expiration = int(datetime.strptime(data['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
         embed.set_footer(
-            text=f"Ends in {data['eta']}\nValid Languages: en, es, fr, it, ko, pl, pt, ru, zh")
+            text=f"Ends: <t:{expiration}:R>\nValid Languages: en, es, fr, it, ko, pl, pt, ru, zh")
         await interaction.response.send_message(embed=embed)
 
 

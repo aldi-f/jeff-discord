@@ -2,6 +2,7 @@ import discord
 import json
 import logging
 import time
+from datetime import datetime
 
 from discord import app_commands
 from discord.ext import commands
@@ -43,19 +44,19 @@ class fissure(commands.Cog):
             for x in data:
                 if not x['isStorm'] and not x['isHard']:
                     fissure_list.append(
-                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds in {x['eta']}"))
+                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds: <t:{int(datetime.strptime(x['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())}:R>"))
 
         elif f_type == 'Steel Path':
             for x in data:
                 if x['isHard']:
                     fissure_list.append(
-                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds in {x['eta']}"))
+                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds: <t:{int(datetime.strptime(x['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())}:R>"))
 
         elif f_type == 'Railjack':
             for x in data:
                 if x['isStorm']:
                     fissure_list.append(
-                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds in {x['eta']}"))
+                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds: <t:{int(datetime.strptime(x['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())}:R>"))
 
         fissures_sorted = sorted(fissure_list, key=lambda x: x[0])
 
@@ -99,19 +100,19 @@ class fissure(commands.Cog):
             for x in data:
                 if not x['isStorm'] and not x['isHard']:
                     fissure_list.append(
-                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds in {x['eta']}"))
+                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds: <t:{int(datetime.strptime(x['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())}:R>"))
 
         elif f_type == 'Steel Path':
             for x in data:
                 if x['isHard']:
                     fissure_list.append(
-                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds in {x['eta']}"))
+                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds: <t:{int(datetime.strptime(x['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())}:R>"))
 
         elif f_type == 'Railjack':
             for x in data:
                 if x['isStorm']:
                     fissure_list.append(
-                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds in {x['eta']}"))
+                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds: <t:{int(datetime.strptime(x['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())}:R>"))
 
         fissures_sorted = sorted(fissure_list, key=lambda x: x[0])
 

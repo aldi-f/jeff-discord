@@ -42,7 +42,7 @@ class duviri(commands.Cog):
 
         current_timestamp = datetime.now(tz=None)
 
-        if current_timestamp.dst():  # COMMUNITY DEVS DONT KNOW TIMEZONES
+        if current_timestamp.dst():
             current_timestamp = current_timestamp - timedelta(hours=1)
 
         current_timestamp_string = current_timestamp.strftime(

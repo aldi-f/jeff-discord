@@ -2,6 +2,7 @@ import discord
 import json
 import logging
 import requests
+from datetime import datetime
 
 from discord.ext import commands
 
@@ -56,12 +57,12 @@ class bounty(commands.Cog):
         )
         for job in bounties[0]['jobs']:
             embed.add_field(
-                name=f"[{'-'.join([f'{x}' for x in job['enemyLevels']])
-                         }]{job['type']}",
+                name=f"[{'-'.join([f'{x}' for x in job['enemyLevels']])}]{job['type']}",
                 value="- "+"\n- ".join(job["rewardPool"]))
 
+        expiration = int(datetime.strptime(bounties[0]['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
         embed.set_footer(
-            text=f"Rotation ends in {bounties[0]['eta']}"
+            text=f"Rotation ends: <t:{expiration}:R>"
         )
         await ctx.send(embed=embed)
 

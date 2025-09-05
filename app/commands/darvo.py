@@ -2,6 +2,7 @@ import discord
 import json
 import logging
 import requests
+from datetime import datetime
 
 from discord.ext import commands
 
@@ -23,7 +24,9 @@ class darvo(commands.Cog):
             description=f"## {data['item']}\n### {data['total']-data['sold']}/{data['total']} left\nPrice: ~~{data['originalPrice']}~~ {data['salePrice']}<:Platinum:992917150358589550> ({data['discount']}% off)",
             title="Darvo's Daily Deal"
         )
-        set_embed.set_footer(text=f"Ends in {data['eta']}")
+
+        expiration = int(datetime.strptime(data['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
+        set_embed.set_footer(text=f"Ends in <t:{expiration}:R>")
 
         await ctx.send(embed=set_embed)
 

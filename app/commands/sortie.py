@@ -2,6 +2,7 @@ import discord
 import json
 import logging
 import time
+from datetime import datetime
 
 from discord.ext import commands
 from requests import get
@@ -42,8 +43,9 @@ class sortie(commands.Cog):
             embed.add_field(name=f"({x+1}) {mission['missionType']}",
                             value=f"{mission['node']}\nCondition: {mission['modifier']}\nEffect: {mission['modifierDescription']}",
                             inline=False)
-
-        embed.set_footer(text=f"Ends in {data['eta']}\nValid Languages: en, es, fr, it, ko, pl, pt, ru, zh" + "\n" +
+            
+        expiration = int(datetime.strptime(data['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
+        embed.set_footer(text=f"Ends: <t:{expiration}:R>\nValid Languages: en, es, fr, it, ko, pl, pt, ru, zh" + "\n" +
                          f"Total Latency: {round((time.time() - start)*1000)}ms\nDownload Latency: {round(download_timer*1000)}ms")
         await ctx.send(embed=embed)
 
