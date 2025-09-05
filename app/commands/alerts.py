@@ -2,6 +2,7 @@ import discord
 import json
 import logging
 import time
+from datetime import datetime
 
 from discord.ext import commands
 from requests import get
@@ -37,11 +38,11 @@ class alerts(commands.Cog):
 
         for alert in data:
             x = alert.get("mission")
-            x_eta = alert.get("eta")
+            expiry = alert.get("expiry")
             key = f'{x.get("nodeKey")} | {x.get("typeKey")} | {x.get("factionKey")} | ({x.get("minEnemyLevel")}-{x.get("maxEnemyLevel")})'
             # length = x.get("maxWaveNum")
             # length_text = f"Waves: {length}\n" if length else ''
-            value = f'Rewards: {x.get("reward").get("asString")}\nEnds in {x_eta}'
+            value = f'Rewards: {x.get("reward").get("asString")}\nEnds: <t:{int(datetime.strptime(expiry, "%Y-%m-%dT%H:%M:%S.%fZ").timestamp())}:R>'
             embed.add_field(name=key, value=value, inline=False)
 
         embed.set_footer(

@@ -32,6 +32,7 @@ class sortie(commands.Cog):
         download_timer = time.time() - download_start
         data = json.loads(response.text)
 
+        expiration = int(datetime.strptime(data['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
         embed = discord.Embed(
             title="Sortie",
             description=f"Boss: {data['boss']}\nFaction: {data['faction']}\nEnds: <t:{expiration}:R>",
@@ -44,7 +45,6 @@ class sortie(commands.Cog):
                             value=f"{mission['node']}\nCondition: {mission['modifier']}\nEffect: {mission['modifierDescription']}",
                             inline=False)
             
-        expiration = int(datetime.strptime(data['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
         embed.set_footer(text=f"Valid Languages: en, es, fr, it, ko, pl, pt, ru, zh" + "\n" +
                          f"Total Latency: {round((time.time() - start)*1000)}ms\nDownload Latency: {round(download_timer*1000)}ms")
         await ctx.send(embed=embed)
