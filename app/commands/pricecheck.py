@@ -176,7 +176,8 @@ class PriceCheckCog(commands.Cog):
 
         async with ctx.typing():
             start = time.time()
-            valid_items: set[ItemShortModel] = set()
+            valid_items: list[ItemShortModel] = []
+            seen_slugs = set()
             for attachment in valid_attachments:
                 image_url = attachment.url
                 scrape = await self.scraper.scrape(image_url)
@@ -184,7 +185,10 @@ class PriceCheckCog(commands.Cog):
                     continue
 
                 items = await self.validator.validate_items(scrape.items)
-                valid_items.update(items)
+                for item in items:
+                    if item.slug not in seen_slugs:
+                        valid_items.append(item)
+                        seen_slugs.add(item.slug)
 
             if len(valid_items) == 0:
                 error = discord.Embed(description="No valid items found in the screenshots.")
@@ -193,7 +197,7 @@ class PriceCheckCog(commands.Cog):
                 
 
             embed = discord.Embed(title="Price Check", color=discord.Color.blue())
-            message = await ctx.send(f"Found {len(items)} items. Doing Price checks...")
+            message = await ctx.send(f"Found {len(valid_items)} items. Doing Price checks...")
             items_with_price = []
             for i, item in enumerate(valid_items):
                 try:
@@ -205,7 +209,7 @@ class PriceCheckCog(commands.Cog):
                     logger.error(f"Error checking price for {item.i18n['en'].name}: {e}")
                 if (i + 1) % 3 == 0:
                     await asyncio.sleep(1)
-                    await message.edit(content=f"Found {len(items)} items. Doing Price checks... ({i + 1}/{len(items)})")
+                    await message.edit(content=f"Found {len(valid_items)} items. Doing Price checks... ({i + 1}/{len(valid_items)})")
 
             # sort in this order:
             # most expensive first (first element of list),
@@ -213,7 +217,7 @@ class PriceCheckCog(commands.Cog):
             items_with_price.sort(key=lambda x: (x[1][0] if len(x[1]) != 0 else 0,
                                                 sum(x[1]) / len(x[1]) if len(x[1]) != 0 else 0
                                                 ), reverse=True)
-            item_text = f"Found {len(items)} items in the screenshot:\n"
+            item_text = f"Found {len(valid_items)} items in the screenshot:\n"
             for item, prices in items_with_price:
                 price_text = PriceCheck.format_output(prices)
                 item_text += f"- {item.i18n['en'].name}: {price_text}\n"
