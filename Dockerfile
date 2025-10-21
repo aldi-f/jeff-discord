@@ -1,14 +1,11 @@
 FROM python:3.12-slim
 
+
+WORKDIR /usr/src/app
+
 COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-USER root
+COPY app/ app/
 
-RUN python3 -m pip install  -r requirements.txt --user 
-
-COPY ./app ./app
-
-WORKDIR /app
-
-CMD ["python3","-u","./jefferson.py"]
-
+CMD ["python","-m","app.jefferson"]

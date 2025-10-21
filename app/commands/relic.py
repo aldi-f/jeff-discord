@@ -6,8 +6,8 @@ import time
 
 from discord.ext import commands
 
-from models.wfm import PriceCheck
-from redis_manager import cache
+from app.models.wfm import PriceCheck
+from app.redis_manager import cache
 
 logger = logging.getLogger(__name__)
 

@@ -13,7 +13,7 @@ from discord.ext import commands
 from pydantic import ValidationError, BaseModel
 from warframe_market.client import WarframeMarketClient
 from warframe_market.models.item import ItemShortModel
-from models.wfm import PriceCheck
+from app.models.wfm import PriceCheck
 
 from Levenshtein import distance
 

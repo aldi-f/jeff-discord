@@ -6,8 +6,9 @@ import hashlib
 import luadata
 from functools import cache
 from typing import TYPE_CHECKING
+
 if TYPE_CHECKING:
-    from redis_manager import RedisManager
+    from app.redis_manager import RedisManager
 
 def dispo(num:int):
     """
@@ -428,3 +429,16 @@ def find_internal_ability_name(internal_name: str, redis_cache: "RedisManager")-
             return f"{object.get('Powersuit')}: {name}"
 
     return None
+
+@cache
+def find_internal_weapon_name(internal_name: str, redis_cache: "RedisManager")-> str|None:
+    if not redis_cache.cache.exists("weapon:1"):
+        update_cache("weapon:1", redis_cache)
+
+    data = json.loads(redis_cache.cache.get("weapon:1"))
+    for name, object in data.items():
+        if object.get('InternalName') == internal_name:
+            return name
+
+    return None
+

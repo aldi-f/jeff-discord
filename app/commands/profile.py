@@ -2,8 +2,9 @@ from discord.ext import commands
 from datetime import datetime
 import discord
 import requests
-from funcs import find_internal_warframe_name, find_internal_ability_name
-from redis_manager import cache
+
+from app.funcs import find_internal_warframe_name, find_internal_ability_name
+from app.redis_manager import cache
 
 PLATFORMS = {
     "pc" : ["pc"],

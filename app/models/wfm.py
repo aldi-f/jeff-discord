@@ -1,5 +1,3 @@
-import requests
-import aiohttp
 from enum import Enum
 from warframe_market.client import WarframeMarketClient
 from warframe_market.common import Subtype
@@ -14,7 +12,7 @@ class PriceCheck:
     """
     platinum = "<:Platinum:992917150358589550>"
 
-    def __init__(self, item: str=None, client: WarframeMarketClient=None):
+    def __init__(self, item: str | None=None, client: WarframeMarketClient=None):
         self.client = client if isinstance(client, WarframeMarketClient) else WarframeMarketClient()
         self.item = item
 

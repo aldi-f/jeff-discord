@@ -5,7 +5,7 @@ import requests
 from discord.ext import commands
 from datetime import datetime, timezone
 
-from mappings.calendar import EVENTS, SEASON
+from app.mappings.calendar import EVENTS, SEASON
 
 logger = logging.getLogger(__name__)
 

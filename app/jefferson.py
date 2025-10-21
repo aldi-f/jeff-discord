@@ -15,9 +15,12 @@ intents.message_content = True
 bot = commands.Bot(command_prefix='-', intents=intents, help_command=None)
 
 async def load():
-    for file in os.listdir('./commands'):
-        if file.endswith('.py'):
-            await bot.load_extension(f'commands.{file[:-3]}') 
+    # for file in os.listdir('./commands'):
+    #     if file.endswith('.py') and not file.startswith('_'):
+    #         await bot.load_extension(f'commands.{file[:-3]}') 
+    for file in os.listdir('app/commands'):
+        if file.endswith('.py') and not file.startswith('_'):
+            await bot.load_extension(f'app.commands.{file[:-3]}')
 
 @bot.tree.command(name="sync")
 async def func(interaction: discord.Interaction):

@@ -1,7 +1,7 @@
 import logging
 
 from discord.ext import commands
-from redis_manager import cache
+from app.redis_manager import cache
 logger = logging.getLogger(__name__)
 
 
