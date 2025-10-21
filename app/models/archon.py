@@ -17,9 +17,9 @@ class _Mission(Struct):
     mission_type: str = field(name="missionType")
     node: str = field(name="node")
 
-class LiteSortie(Struct):
-    activation: datetime = field(name="Activation")
-    expiry: datetime = field(name="Expiry")
+class ArchonHunt(Struct):
+    activation: datetime | dict = field(name="Activation")
+    expiry: datetime | dict = field(name="Expiry")
     reward: str = field(name="Reward")
     seed: int = field(name="Seed")
     boss: str = field(name="Boss")

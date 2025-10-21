@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from discord.ext import commands
 from requests import get
 
-from funcs import FIRST_WEEK
+from app.funcs import FIRST_WEEK
 
 logger = logging.getLogger(__name__)
 

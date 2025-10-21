@@ -21,8 +21,8 @@ class _Variant(Struct):
     tileset: str = field(name="tileset")
 
 class Sortie(Struct):
-    activation: datetime = field(name="Activation")
-    expiry: datetime = field(name="Expiry")
+    activation: datetime | dict = field(name="Activation")
+    expiry: datetime | dict = field(name="Expiry")
     reward: str = field(name="Reward")
     seed: int = field(name="Seed")
     boss: str = field(name="Boss")
@@ -35,7 +35,6 @@ class Sortie(Struct):
             self.activation = parse_mongo_date(self.activation)
         if isinstance(self.expiry, dict):
             self.expiry = parse_mongo_date(self.expiry)
-
 
 ######################################################
 #   "Sorties": [

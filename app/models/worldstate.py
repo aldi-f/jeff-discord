@@ -1,13 +1,13 @@
 from msgspec import Struct, field
 
-from .darvo import Darvo
-from .archon import ArchonHunt
-from .sorties import Sortie
-from .fissure import Fissure
-from .nightwave import Nightwave
+from app.models.darvo import Darvo
+from app.models.archon import ArchonHunt
+from app.models.sortie import Sortie
+from app.models.fissure import Fissure
+from app.models.nightwave import Nightwave
 
 
-class Worldstate(Struct):
+class WorldstateModel(Struct):
     version: int = field(name="Version")
     mobile_version: str = field(name="MobileVersion")
     build_label: str = field(name="BuildLabel")

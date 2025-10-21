@@ -13,11 +13,11 @@ def parse_mongo_date(date_dict: dict) -> datetime:
     return datetime.fromtimestamp(timestamp_ms / 1000, tz=UTC)
 
 
-class ActiveMission(Struct):
+class Fissure(Struct):
+    activation: datetime | dict = field(name="Activation")
+    expiry: datetime | dict = field(name="Expiry")
     region: int = field(name="Region")
     seed: int = field(name="Seed")
-    activation: datetime = field(name="Activation")
-    expiry: datetime = field(name="Expiry")
     node: str = field(name="Node")
     mission_type: str = field(name="MissionType")
     modifier: str = field(name="Modifier")

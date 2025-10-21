@@ -6,8 +6,8 @@ import time
 from discord.ext import commands
 from Levenshtein import distance
 
-from funcs import dispo, update_cache
-from redis_manager import cache
+from app.funcs import dispo, update_cache
+from app.redis_manager import cache
 
 logger = logging.getLogger(__name__)
 

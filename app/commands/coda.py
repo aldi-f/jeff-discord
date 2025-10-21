@@ -1,6 +1,5 @@
 import discord
 import logging
-import requests
 from datetime import datetime, timedelta
 from pytz import UTC
 

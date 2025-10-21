@@ -1,5 +1,3 @@
-import requests
-import aiohttp
 from enum import Enum
 from warframe_market.client import WarframeMarketClient
 from warframe_market.common import Subtype

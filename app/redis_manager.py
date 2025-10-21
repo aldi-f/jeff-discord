@@ -1,5 +1,5 @@
 import redis
-from funcs import update_cache
+from app.funcs import update_cache
 
 class RedisManager(object):
     def __init__(self):

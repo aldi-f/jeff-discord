@@ -6,8 +6,8 @@ import time
 
 from discord.ext import commands, tasks
 
-from funcs import WIKI_URL_BASE, WIKI_MODULE_BODY, WFCD, CHECKSUMS, unserialize_lua_table
-from redis_manager import cache
+from app.funcs import WIKI_URL_BASE, WIKI_MODULE_BODY, WFCD, CHECKSUMS, unserialize_lua_table
+from app.redis_manager import cache
 
 logger = logging.getLogger(__name__)
 

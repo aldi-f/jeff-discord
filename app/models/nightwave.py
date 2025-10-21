@@ -14,8 +14,8 @@ def parse_mongo_date(date_dict: dict) -> datetime:
 
 
 class _ActiveChallenge(Struct):
-    activation: datetime = field(name="Activation")
-    expiry: datetime = field(name="Expiry")
+    activation: datetime | dict = field(name="Activation")
+    expiry: datetime | dict = field(name="Expiry")
     challenge: str = field(name="Challenge")
 
     def __post_init__(self):
@@ -46,9 +46,9 @@ class _ActiveChallenge(Struct):
         else:
             return 0
 
-class SeasonInfo(Struct):
-    activation: datetime = field(name="Activation")
-    expiry: datetime = field(name="Expiry")
+class Nightwave(Struct):
+    activation: datetime | dict = field(name="Activation")
+    expiry: datetime | dict = field(name="Expiry")
     affiliation_tag: str = field(name="AffiliationTag")
     season: int = field(name="Season")
     phase: int = field(name="Phase")

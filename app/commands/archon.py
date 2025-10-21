@@ -8,7 +8,7 @@ from discord import app_commands
 from discord.ext import commands
 from requests import get
 
-from funcs import get_shard
+from app.funcs import get_shard
 
 logger = logging.getLogger(__name__)
 
