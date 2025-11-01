@@ -1,16 +1,14 @@
 import discord
-import json
 import logging
 import time
-from datetime import datetime
 
 from discord import app_commands
 from discord.ext import commands
-from requests import get
+
+from app.api.worldstate import worldstate_client
 
 logger = logging.getLogger(__name__)
 
-url = "https://api.warframestat.us/PC/fissures?language=en"
 
 class fissure(commands.Cog):
     def __init__(self, bot):
@@ -19,44 +17,36 @@ class fissure(commands.Cog):
     @commands.command(name='fissure', description="Show the current Fissures")
     async def fissure(self, ctx, type: str = None):
         """
-        Usage: !fissure <type> \n
-        Default language is en (english)\n
+        Usage: -fissure <type>
         """
         start = time.time()
         if type == 'sp':
-            f_type = 'Steel Path'
-        elif type == 'rj':
-            f_type = 'Railjack'
+            f_type = 'Steel Path '
+        # elif type == 'rj':
+        #     f_type = 'Railjack'
         else:
             f_type = ''
 
-        response = get(url)
-        data = json.loads(response.text)
+        start = time.time()
+        worldstate = await worldstate_client.get_worldstate()
+        fissures = worldstate.active_missions
 
         embed = discord.Embed(
-            title=f"{f_type} Fissures",
+            title=f"{f_type}Fissures",
             color=discord.Colour.random()
         )
 
         fissure_list = []
 
-        if f_type == '':
-            for x in data:
-                if not x['isStorm'] and not x['isHard']:
-                    fissure_list.append(
-                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds: <t:{int(datetime.strptime(x['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())}:R>"))
+        for fissure in fissures:
+            modifier = fissure.modifier
+            mission_type = fissure.mission_type
+            node = fissure.node
 
-        elif f_type == 'Steel Path':
-            for x in data:
-                if x['isHard']:
-                    fissure_list.append(
-                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds: <t:{int(datetime.strptime(x['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())}:R>"))
+            if type == 'sp' and not fissure.hard:
+                continue
 
-        elif f_type == 'Railjack':
-            for x in data:
-                if x['isStorm']:
-                    fissure_list.append(
-                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds: <t:{int(datetime.strptime(x['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())}:R>"))
+            fissure_list.append((modifier, f"{modifier} - {mission_type}", f"{node}\nEnds: <t:{int(fissure.expiry.timestamp())}:R>"))
 
         fissures_sorted = sorted(fissure_list, key=lambda x: x[0])
 
@@ -79,40 +69,36 @@ class fissure(commands.Cog):
         discord.app_commands.Choice(name="Railjack", value="rj"),
     ])
     async def fissures(self, interaction: discord.Interaction, type: discord.app_commands.Choice[str] = None):
-        start = time.time()
-
-        if type is None or type.name == "Normal":
-            f_type = ''
+        """
+        Usage: -fissure <type>
+        """
+        if type == 'sp':
+            f_type = 'Steel Path '
+        # elif type == 'rj':
+        #     f_type = 'Railjack'
         else:
-            f_type = type.name
+            f_type = ''
 
-        response = get(url)
-        data = json.loads(response.text)
+        start = time.time()
+        worldstate = await worldstate_client.get_worldstate()
+        fissures = worldstate.active_missions
 
         embed = discord.Embed(
-            title=f"{f_type} Fissures",
+            title=f"{f_type}Fissures",
             color=discord.Colour.random()
         )
 
         fissure_list = []
 
-        if f_type == '':
-            for x in data:
-                if not x['isStorm'] and not x['isHard']:
-                    fissure_list.append(
-                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds: <t:{int(datetime.strptime(x['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())}:R>"))
+        for fissure in fissures:
+            modifier = fissure.modifier
+            mission_type = fissure.mission_type
+            node = fissure.node
 
-        elif f_type == 'Steel Path':
-            for x in data:
-                if x['isHard']:
-                    fissure_list.append(
-                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds: <t:{int(datetime.strptime(x['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())}:R>"))
+            if type == 'sp' and not fissure.hard:
+                continue
 
-        elif f_type == 'Railjack':
-            for x in data:
-                if x['isStorm']:
-                    fissure_list.append(
-                        (x['tierNum'], f"{x['tier']} - {x['missionType']} - {x['enemy']}", f"{x['node']}\nEnds: <t:{int(datetime.strptime(x['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())}:R>"))
+            fissure_list.append((modifier, f"{modifier} - {mission_type}", f"{node}\nEnds: <t:{int(fissure.expiry.timestamp())}:R>"))
 
         fissures_sorted = sorted(fissure_list, key=lambda x: x[0])
 
