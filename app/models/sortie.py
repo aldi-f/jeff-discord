@@ -28,7 +28,7 @@ class Sortie(Struct):
     boss: str = field(name="Boss")
     extra_drops: list = field(name="ExtraDrops")
     variants: list[_Variant] = field(name="Variants")
-    twitter: bool = field(name="Twitter")
+    twitter: bool = field(name="Twitter", default=False)
 
     def __post_init__(self):
         if isinstance(self.activation, dict):
