@@ -7,8 +7,6 @@ from app.api.worldstate import worldstate_client
 
 logger = logging.getLogger(__name__)
 
-url = "https://api.warframestat.us/PC/dailyDeals?language=en"
-
 
 class darvo(commands.Cog):
     def __init__(self, bot):
