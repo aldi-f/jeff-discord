@@ -29,7 +29,7 @@ class nightwave(commands.Cog):
         )
         for challenge in nightwave.active_challenges:
             embed.add_field(
-                name=f"{challenge.type}:{challenge.challenge}",
+                name=f"{challenge.type}: {challenge.challenge}",
                 value=f"{challenge.standing} Reputation",
                 inline=False
             )
@@ -54,7 +54,7 @@ class nightwave(commands.Cog):
         )
         for challenge in nightwave.active_challenges:
             embed.add_field(
-                name=f"{challenge.type}:{challenge.challenge}",
+                name=f"{challenge.type}: {challenge.challenge}",
                 value=f"{challenge.standing} Reputation",
                 inline=False
             )
