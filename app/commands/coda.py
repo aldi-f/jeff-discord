@@ -15,21 +15,23 @@ ROTATIONS = [
     {
         "Primary": ["Coda Hema", "Coda Sporothrix"],
         "Secondary": ["Coda Catabolyst", "Coda Pox", "Coda Dual Torxica"],
-        "Melee": ["Coda Mire", "Coda Motovore"]
+        "Melee": ["Coda Mire", "Coda Motovore"],
     },
     {
         "Primary": ["Coda Bassocyst", "Coda Synapse"],
         "Secondary": ["Coda Tysis"],
-        "Melee": ["Coda Caustacyst", "Coda Hirudo", "Coda Pathocyst"]
-    }
+        "Melee": ["Coda Caustacyst", "Coda Hirudo", "Coda Pathocyst"],
+    },
 ]
 
 
-class coda(commands.Cog):
+class Coda(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.hybrid_command(name="coda", with_app_command=True, description="Current Coda rotation.")
+    @commands.hybrid_command(
+        name="coda", with_app_command=True, description="Current Coda rotation."
+    )
     async def coda(self, ctx: commands.Context):
         """Display the current Coda rotation."""
         now = datetime.now(UTC)
@@ -43,13 +45,14 @@ class coda(commands.Cog):
             title="Current Coda Rotation",
             description=f"Ends: {next_rotation}",
             color=discord.Color.green(),
-
         )
         for weapon_type, weapons in rotation.items():
-            embed.add_field(name=weapon_type, value="- "+"\n- ".join(weapons), inline=False)
+            embed.add_field(
+                name=weapon_type, value="- " + "\n- ".join(weapons), inline=False
+            )
 
         await ctx.send(embed=embed)
 
 
 async def setup(bot):
-    await bot.add_cog(coda(bot))
+    await bot.add_cog(Coda(bot))

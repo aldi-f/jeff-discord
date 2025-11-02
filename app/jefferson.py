@@ -17,7 +17,7 @@ bot = commands.Bot(command_prefix='-', intents=intents, help_command=None)
 async def load():
     # for file in os.listdir('./commands'):
     #     if file.endswith('.py') and not file.startswith('_'):
-    #         await bot.load_extension(f'commands.{file[:-3]}') 
+    #         await bot.load_extension(f'commands.{file[:-3]}')
     for file in os.listdir('app/commands'):
         if file.endswith('.py') and not file.startswith('_'):
             await bot.load_extension(f'app.commands.{file[:-3]}')
@@ -29,7 +29,7 @@ async def func(interaction: discord.Interaction):
         try:
             await bot.tree.sync()
             await interaction.followup.send("Done.", ephemeral=True)
-        except: 
+        except:
             await interaction.followup.send("Something went wrong!", ephemeral=True)
     else:
         file = discord.File("silicate.jpg")

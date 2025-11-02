@@ -1,29 +1,37 @@
 from msgspec import Struct, field
 
-from app.models.darvo import Darvo
+from app.models.alert import Alert
 from app.models.archon import ArchonHunt
-from app.models.sortie import Sortie
+from app.models.baro import Baro
+from app.models.darvo import Darvo
 from app.models.fissure import Fissure
 from app.models.nightwave import Nightwave
+from app.models.sortie import Sortie
 
 
-class WorldstateModel(Struct):
+class WorldstateModel(Struct, kw_only=True):
     version: int = field(name="Version")
     mobile_version: str = field(name="MobileVersion")
     build_label: str = field(name="BuildLabel")
     time: int = field(name="Time")
 
-    # Darvo deals
-    daily_deals: list[Darvo] = field(name="DailyDeals")
+    # Alerts
+    alerts: list[Alert] = field(name="Alerts", default_factory=list)
 
     # Archon hunt:
     lite_sorties: list[ArchonHunt] = field(name="LiteSorties")
 
-    # Sortie
-    sorties: list[Sortie] = field(name="Sorties")
+    # Baro
+    void_traders: list[Baro] = field(name="VoidTraders")
+
+    # Darvo deals
+    daily_deals: list[Darvo] = field(name="DailyDeals")
 
     # Fissures
     active_missions: list[Fissure] = field(name="ActiveMissions")
 
     # Nightwave
     season_info: Nightwave = field(name="SeasonInfo")
+
+    # Sortie
+    sorties: list[Sortie] = field(name="Sorties")

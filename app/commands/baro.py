@@ -1,56 +1,108 @@
 import discord
-import json
 import logging
 import time
-from datetime import datetime
 
 from discord.ext import commands
-from requests import get
+
+from app.api.worldstate import worldstate_client
 
 logger = logging.getLogger(__name__)
 
 
-class baro(commands.Cog):
+class BaroView(discord.ui.View):
+    def __init__(self, embeds: list[discord.Embed], timeout: int = 180):
+        super().__init__(timeout=timeout)
+        self.embeds = embeds
+        self.current_page = 0
+        self.message = None
+
+        # Disable buttons if only one page
+        if len(self.embeds) <= 1:
+            self.previous_button.disabled = True
+            self.next_button.disabled = True
+        else:
+            self.previous_button.disabled = True
+
+    def update_buttons(self):
+        self.previous_button.disabled = self.current_page == 0
+        self.next_button.disabled = self.current_page == len(self.embeds) - 1
+
+    @discord.ui.button(label="◀", style=discord.ButtonStyle.primary)
+    async def previous_button(
+        self, interaction: discord.Interaction, button: discord.ui.Button
+    ):
+        if self.current_page > 0:
+            self.current_page -= 1
+            self.update_buttons()
+            await interaction.response.edit_message(
+                embed=self.embeds[self.current_page], view=self
+            )
+
+    @discord.ui.button(label="▶", style=discord.ButtonStyle.primary)
+    async def next_button(
+        self, interaction: discord.Interaction, button: discord.ui.Button
+    ):
+        if self.current_page < len(self.embeds) - 1:
+            self.current_page += 1
+            self.update_buttons()
+            await interaction.response.edit_message(
+                embed=self.embeds[self.current_page], view=self
+            )
+
+
+class Baro(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.hybrid_command(name='baro', with_app_command=True, description="Show current baro status and his inventory")
+    @commands.hybrid_command(
+        name="baro",
+        with_app_command=True,
+        description="Show current baro status and his inventory",
+    )
     # @app_commands.guilds(discord.Object(id=992897664087760979))
     async def baro(self, ctx):
         """
-        Usage: !baro\n
+        Usage: -baro\n
         Show current baro status and his inventory
         """
         start = time.time()
-        response = get(f"https://api.warframestat.us/pc/voidTrader")
-        data = json.loads(response.text)
 
-        if not data['inventory']:
-            noBaro = discord.Embed(title="Baro Ki'Teer")
-            activation = int(datetime.strptime(data['activation'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
-            noBaro.add_field(
-                name=f"Incoming: <t:{activation}:R>",
-                value=f"Location: {data['location']}"
-            )
+        worldstate = await worldstate_client.get_worldstate()
+        baro_data = worldstate.void_traders[0]
 
-            await ctx.send(embed=noBaro)
-            return
-        else:
-            text = ''
+        items_per_page = 15  # discord limit
+        manifest = baro_data.manifest
+        total_items = len(manifest)
+        total_pages = (total_items + items_per_page - 1) // items_per_page
 
-            for x in data['inventory']:
-                text += f"{x['item']}: \u3000 {x['ducats']}<:Ducat:967433339868950638>| {x['credits']}<:Credits:967435392427106348>\n"
+        embeds = []
+        for page in range(total_pages):
+            start_idx = page * items_per_page
+            end_idx = min(start_idx + items_per_page, total_items)
 
-            expiration = int(datetime.strptime(data['expiry'], '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())
             embed = discord.Embed(
-                title="Baro Ki'Teer Inventory",
-                description=f"{data['location']}\nLeaving: <t:{expiration}:R>\n\n{text}"
+                title="Baro Ki'Teer",
+                description=f"Location: {baro_data.node}\nLeaving: <t:{int(baro_data.expiry.timestamp())}:R>",
             )
+
+            for item in manifest[start_idx:end_idx]:
+                embed.add_field(
+                    name=item.item_type,
+                    value=f"{item.ducats}<:Ducat:967433339868950638> | {item.credits}<:Credits:967435392427106348>",
+                    inline=False,
+                )
+
             embed.set_footer(
-                text=f"Latency: {round((time.time() - start)*1000)}ms"
+                text=f"Page {page + 1}/{total_pages} | Latency: {round((time.time() - start) * 1000)}ms"
             )
-            await ctx.send(embed=embed)
+            embeds.append(embed)
+
+        if len(embeds) == 1:
+            await ctx.send(embed=embeds[0])
+        else:
+            view = BaroView(embeds)
+            await ctx.send(embed=embeds[0], view=view)
 
 
 async def setup(bot):
-    await bot.add_cog(baro(bot))
+    await bot.add_cog(Baro(bot))

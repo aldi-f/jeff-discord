@@ -14,27 +14,24 @@ class fissure(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='fissure', description="Show the current Fissures")
-    async def fissure(self, ctx, type: str = None):
+    @commands.command(name="fissure", description="Show the current Fissures")
+    async def fissure(self, ctx, type: str = ""):
         """
         Usage: -fissure <type>
         """
         start = time.time()
-        if type == 'sp':
-            f_type = 'Steel Path '
+        if type == "sp":
+            f_type = "Steel Path "
         # elif type == 'rj':
         #     f_type = 'Railjack'
         else:
-            f_type = ''
+            f_type = ""
 
         start = time.time()
         worldstate = await worldstate_client.get_worldstate()
         fissures = worldstate.active_missions
 
-        embed = discord.Embed(
-            title=f"{f_type}Fissures",
-            color=discord.Colour.random()
-        )
+        embed = discord.Embed(title=f"{f_type}Fissures", color=discord.Colour.random())
 
         fissure_list = []
 
@@ -43,50 +40,58 @@ class fissure(commands.Cog):
             mission_type = fissure.mission_type
             node = fissure.node
 
-            if type == 'sp' and not fissure.hard:
+            if type == "sp" and not fissure.hard:
                 continue
 
-            fissure_list.append((modifier, f"{modifier} - {mission_type}", f"{node}\nEnds: <t:{int(fissure.expiry.timestamp())}:R>"))
+            fissure_list.append(
+                (
+                    modifier,
+                    f"{modifier} - {mission_type}",
+                    f"{node}\nEnds: <t:{int(fissure.expiry.timestamp())}:R>",
+                )
+            )
 
         fissures_sorted = sorted(fissure_list, key=lambda x: x[0])
 
         for fissure in fissures_sorted:
-            embed.add_field(
-                name=fissure[1],
-                value=fissure[2],
-                inline=False
-            )
+            embed.add_field(name=fissure[1], value=fissure[2], inline=False)
 
-        embed.set_footer(text=f"Valid fissure types are: rj (Railjack), sp (Steel Path), <empty> (Normal)" +
-                         "\n"+f"Latency: {round((time.time() - start)*1000)}ms")
+        embed.set_footer(
+            text="Valid fissure types are: rj (Railjack), sp (Steel Path), <empty> (Normal)"
+            + "\n"
+            + f"Latency: {round((time.time() - start) * 1000)}ms"
+        )
         await ctx.send(embed=embed)
 
     @app_commands.command(name="fissures", description="Show the current Fissures")
     # @app_commands.guilds(discord.Object(id=992897664087760979))
-    @app_commands.choices(type=[
-        discord.app_commands.Choice(name="Normal", value=""),
-        discord.app_commands.Choice(name="Steel Path", value="sp"),
-        discord.app_commands.Choice(name="Railjack", value="rj"),
-    ])
-    async def fissures(self, interaction: discord.Interaction, type: discord.app_commands.Choice[str] = None):
+    @app_commands.choices(
+        type=[
+            discord.app_commands.Choice(name="Normal", value=""),
+            discord.app_commands.Choice(name="Steel Path", value="sp"),
+            discord.app_commands.Choice(name="Railjack", value="rj"),
+        ]
+    )
+    async def fissures(
+        self,
+        interaction: discord.Interaction,
+        type: discord.app_commands.Choice[str] = None,
+    ):
         """
         Usage: -fissure <type>
         """
-        if type == 'sp':
-            f_type = 'Steel Path '
+        if type == "sp":
+            f_type = "Steel Path "
         # elif type == 'rj':
         #     f_type = 'Railjack'
         else:
-            f_type = ''
+            f_type = ""
 
         start = time.time()
         worldstate = await worldstate_client.get_worldstate()
         fissures = worldstate.active_missions
 
-        embed = discord.Embed(
-            title=f"{f_type}Fissures",
-            color=discord.Colour.random()
-        )
+        embed = discord.Embed(title=f"{f_type}Fissures", color=discord.Colour.random())
 
         fissure_list = []
 
@@ -95,22 +100,27 @@ class fissure(commands.Cog):
             mission_type = fissure.mission_type
             node = fissure.node
 
-            if type == 'sp' and not fissure.hard:
+            if type == "sp" and not fissure.hard:
                 continue
 
-            fissure_list.append((modifier, f"{modifier} - {mission_type}", f"{node}\nEnds: <t:{int(fissure.expiry.timestamp())}:R>"))
+            fissure_list.append(
+                (
+                    modifier,
+                    f"{modifier} - {mission_type}",
+                    f"{node}\nEnds: <t:{int(fissure.expiry.timestamp())}:R>",
+                )
+            )
 
         fissures_sorted = sorted(fissure_list, key=lambda x: x[0])
 
         for fissure in fissures_sorted:
-            embed.add_field(
-                name=fissure[1],
-                value=fissure[2],
-                inline=False
-            )
+            embed.add_field(name=fissure[1], value=fissure[2], inline=False)
 
-        embed.set_footer(text=f"Valid fissure types are: rj (Railjack), sp (Steel Path), <empty> (Normal)" +
-                         "\n"+f"Latency: {round((time.time() - start)*1000)}ms")
+        embed.set_footer(
+            text="Valid fissure types are: rj (Railjack), sp (Steel Path), <empty> (Normal)"
+            + "\n"
+            + f"Latency: {round((time.time() - start) * 1000)}ms"
+        )
 
         await interaction.response.send_message(embed=embed)
 
