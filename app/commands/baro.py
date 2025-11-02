@@ -77,7 +77,7 @@ class Baro(commands.Cog):
         if total_items == 0:
             embed = discord.Embed(
                 title="Baro Ki'Teer",
-                description=f"Incoming in: <t:{int(baro_data.expiry.timestamp())}:R>",
+                description=f"Incoming in: <t:{int(baro_data.activation.timestamp())}:R>",
             )
             await ctx.send(embed=embed)
             return
