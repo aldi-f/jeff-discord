@@ -25,7 +25,7 @@ class Baro(Struct):
     expiry: datetime | dict = field(name="Expiry")
     character: str = field(name="Character")
     node: str = field(name="Node")
-    manifest: list[_Inventory] = field(name="Manifest")
+    manifest: list[_Inventory] = field(name="Manifest", default_factory=list)
 
     def __post_init__(self):
         if isinstance(self.activation, dict):

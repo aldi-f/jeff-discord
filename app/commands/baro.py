@@ -73,6 +73,15 @@ class Baro(commands.Cog):
         items_per_page = 15  # discord limit
         manifest = baro_data.manifest
         total_items = len(manifest)
+
+        if total_items == 0:
+            embed = discord.Embed(
+                title="Baro Ki'Teer",
+                description=f"Incoming in: <t:{int(baro_data.expiry.timestamp())}:R>",
+            )
+            await ctx.send(embed=embed)
+            return
+
         total_pages = (total_items + items_per_page - 1) // items_per_page
 
         embeds = []
