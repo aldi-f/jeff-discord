@@ -1,9 +1,9 @@
-import discord
 import logging
-import requests
-
-from discord.ext import commands
 from datetime import datetime, timedelta
+
+import discord
+import requests
+from discord.ext import commands
 
 logger = logging.getLogger(__name__)
 
@@ -30,14 +30,15 @@ class duviri(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.hybrid_command(name="duviri", with_app_command=True, description="Current Duviri rotation")
+    @commands.hybrid_command(
+        name="duviri", with_app_command=True, description="Current Duviri rotation"
+    )
     # @app_commands.guilds(discord.Object(id=992897664087760979))
     async def duviri(self, ctx: commands.Context):
-        duviri_api = requests.get(
-            "https://api.warframestat.us/pc/duviriCycle/").json()
+        duviri_api = requests.get("https://api.warframestat.us/pc/duviriCycle/").json()
 
-        expiry = duviri_api['expiry']
-        state = duviri_api['state']
+        expiry = duviri_api["expiry"]
+        state = duviri_api["state"]
         target_timestamp = datetime.strptime(expiry, "%Y-%m-%dT%H:%M:%S.%fZ")
 
         current_timestamp = datetime.now(tz=None)
@@ -45,8 +46,7 @@ class duviri(commands.Cog):
         if current_timestamp.dst():
             current_timestamp = current_timestamp - timedelta(hours=1)
 
-        current_timestamp_string = current_timestamp.strftime(
-            "%Y-%m-%dT%H:%M:%S")
+        current_timestamp_string = current_timestamp.strftime("%Y-%m-%dT%H:%M:%S")
 
         time_left = target_timestamp - current_timestamp
 
@@ -74,11 +74,13 @@ class duviri(commands.Cog):
 
         current_cycle = state.capitalize()
         current_name, current_kullervo, current_poi = [
-            cycle for cycle in CYCLES if cycle[0] == current_cycle][0]
+            cycle for cycle in CYCLES if cycle[0] == current_cycle
+        ][0]
 
         next_cycle = find_next_cycle(current_cycle)
         next_name, next_kullervo, _ = [
-            cycle for cycle in CYCLES if cycle[0] == next_cycle][0]
+            cycle for cycle in CYCLES if cycle[0] == next_cycle
+        ][0]
 
         poi = "**Points of Interest**:\n"
         for point in current_poi:
@@ -87,7 +89,7 @@ class duviri(commands.Cog):
         embed = discord.Embed(
             title=f"Duviri Cycles",
             description=f"# {current_name} \n{'*Kullervo can spawn here*' if current_kullervo else ''}\n\n{poi}\n",
-            color=discord.Colour.random()
+            color=discord.Colour.random(),
         )
         embed.set_footer(
             text=f"{next_name} {'(kullervo)' if next_kullervo else ''} in {timing}\nCurrent time: {current_timestamp_string}"

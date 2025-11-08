@@ -3,6 +3,7 @@ from msgspec import Struct, field
 from app.models.alert import Alert
 from app.models.archon import ArchonHunt
 from app.models.baro import Baro
+from app.models.circuit import Circuit
 from app.models.darvo import Darvo
 from app.models.fissure import Fissure
 from app.models.nightwave import Nightwave
@@ -23,6 +24,9 @@ class WorldstateModel(Struct, kw_only=True):
 
     # Baro
     void_traders: list[Baro] = field(name="VoidTraders")
+
+    # Circuit
+    circuits: list[Circuit] = field(name="Circuits")
 
     # Darvo deals
     daily_deals: list[Darvo] = field(name="DailyDeals")
