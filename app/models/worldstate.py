@@ -26,7 +26,7 @@ class WorldstateModel(Struct, kw_only=True):
     void_traders: list[Baro] = field(name="VoidTraders")
 
     # Circuit
-    circuits: list[Circuit] = field(name="Circuits")
+    circuits: list[Circuit] = field(name="EndlessXpChoices")
 
     # Darvo deals
     daily_deals: list[Darvo] = field(name="DailyDeals")
