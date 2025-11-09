@@ -1,11 +1,10 @@
-import discord
-import json
 import logging
 import time
-from datetime import datetime
 
+import discord
 from discord.ext import commands
-from requests import get
+
+from app.api.worldstate import worldstate_client
 
 logger = logging.getLogger(__name__)
 
@@ -23,25 +22,34 @@ class Alerts(commands.Cog):
         Data about current alerts
         """
         start = time.time()
-        embed = discord.Embed(color=discord.Colour.random(), title=f"Alerts")
+        embed = discord.Embed(color=discord.Colour.random(), title="Alerts")
 
-        res = get("https://api.warframestat.us/pc/alerts")
-        data = json.loads(res.text)
-        if len(data) == 0:
-            err = discord.Embed(
-                color=discord.Colour.random(),
-                description="There are no alerts currently running.",
-            )
-            await ctx.send(embed=err)
+        worldstate = await worldstate_client.get_worldstate()
+        alerts = worldstate.alerts
+
+        if len(alerts) == 0:
+            embed.description = "There are no alerts currently running."
+            await ctx.send(embed=embed)
             return
 
-        for alert in data:
-            x = alert.get("mission")
-            expiry = alert.get("expiry")
-            key = f"{x.get('nodeKey')} | {x.get('typeKey')} | {x.get('factionKey')} | ({x.get('minEnemyLevel')}-{x.get('maxEnemyLevel')})"
-            # length = x.get("maxWaveNum")
-            # length_text = f"Waves: {length}\n" if length else ''
-            value = f"Rewards: {x.get('reward').get('asString')}\nEnds: <t:{int(datetime.strptime(expiry, '%Y-%m-%dT%H:%M:%S.%fZ').timestamp())}:R>"
+        for alert in alerts:
+            info = alert.mission_info
+            key = f"{info.location} | {info.mission_type} | {info.faction} | ({info.min_level}-{info.max_level})"
+            if info.max_waves:
+                wave_text = f"Waves: {info.max_waves}\n"
+            else:
+                wave_text = ""
+
+            rewards = info.mission_reward
+            reward_text = "Rewards:\n"
+            if rewards.credits:
+                reward_text += f"Credits: x{rewards.credits}\n"
+            for item in rewards.counted_items:
+                reward_text += f"{item.item}: x{item.quantity}\n"
+
+            value = (
+                f"{wave_text}{reward_text}Ends: <t:{int(alert.expiry.timestamp())}:R>"
+            )
             embed.add_field(name=key, value=value, inline=False)
 
         embed.set_footer(text=f"Latency: {round((time.time() - start) * 1000)}ms")
