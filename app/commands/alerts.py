@@ -35,21 +35,22 @@ class Alerts(commands.Cog):
         for alert in alerts:
             info = alert.mission_info
             key = f"{info.location} | {info.mission_type} | {info.faction} | ({info.min_level}-{info.max_level})"
+
+            expiry_text = f"Ends: <t:{int(alert.expiry.timestamp())}:R>\n"
+
             if info.max_waves:
                 wave_text = f"Waves: {info.max_waves}\n"
             else:
                 wave_text = ""
 
             rewards = info.mission_reward
-            reward_text = "***Rewards:***\n"
+            reward_text = "Rewards:\n"
             if rewards.credits:
                 reward_text += f"- **Credits**: x{rewards.credits}\n"
             for item in rewards.counted_items:
                 reward_text += f"- **{item.item}**: x{item.quantity}\n"
 
-            value = (
-                f"{wave_text}{reward_text}Ends: <t:{int(alert.expiry.timestamp())}:R>"
-            )
+            value = f"{expiry_text}{wave_text}{reward_text}"
             embed.add_field(name=key, value=value, inline=False)
 
         embed.set_footer(text=f"Latency: {round((time.time() - start) * 1000)}ms")
