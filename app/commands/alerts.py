@@ -41,11 +41,11 @@ class Alerts(commands.Cog):
                 wave_text = ""
 
             rewards = info.mission_reward
-            reward_text = "Rewards:\n"
+            reward_text = "***Rewards:***\n"
             if rewards.credits:
-                reward_text += f"Credits: x{rewards.credits}\n"
+                reward_text += f"- **Credits**: x{rewards.credits}\n"
             for item in rewards.counted_items:
-                reward_text += f"{item.item}: x{item.quantity}\n"
+                reward_text += f"- **{item.item}**: x{item.quantity}\n"
 
             value = (
                 f"{wave_text}{reward_text}Ends: <t:{int(alert.expiry.timestamp())}:R>"
