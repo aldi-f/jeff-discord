@@ -47,9 +47,8 @@ class Darvo(Struct):
             self.activation = parse_mongo_date(self.activation)
         if isinstance(self.expiry, dict):
             self.expiry = parse_mongo_date(self.expiry)
-
-        # try to parse store_item to user-friendly name
-        self.store_item = parse_unique_name(self.store_item) or self.store_item
+        if isinstance(self.store_item, str):
+            self.store_item = parse_unique_name(self.store_item) or self.store_item
 
 ######################################################
 #   "DailyDeals": [

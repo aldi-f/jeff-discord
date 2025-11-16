@@ -15,14 +15,14 @@ class fissure(commands.Cog):
         self.bot = bot
 
     @commands.command(name="fissure", description="Show the current Fissures")
-    async def fissure(self, ctx, type: str = ""):
+    async def fissure(self, ctx, fissure_type: str = ""):
         """
         Usage: -fissure <type>
         """
         start = time.time()
-        if type == "sp":
+        if fissure_type == "sp":
             f_type = "Steel Path "
-        # elif type == 'rj':
+        # elif fissure_type == 'rj':
         #     f_type = 'Railjack'
         else:
             f_type = ""
@@ -37,16 +37,17 @@ class fissure(commands.Cog):
 
         for fissure in fissures:
             modifier = fissure.modifier
+            tier = fissure.tier
             mission_type = fissure.mission_type
             node = fissure.node
 
-            if type == "sp" and not fissure.hard:
+            if fissure.hard and fissure_type != "Steel Path ":
                 continue
 
             fissure_list.append(
                 (
-                    modifier,
-                    f"{modifier} - {mission_type}",
+                    tier,
+                    f"{modifier} - {mission_type} ({fissure.hard})",
                     f"{node}\nEnds: <t:{int(fissure.expiry.timestamp())}:R>",
                 )
             )
@@ -75,14 +76,15 @@ class fissure(commands.Cog):
     async def fissures(
         self,
         interaction: discord.Interaction,
-        type: discord.app_commands.Choice[str] = None,
+        fissure_type: discord.app_commands.Choice[str] = None,
     ):
         """
         Usage: -fissure <type>
         """
-        if type == "sp":
+        start = time.time()
+        if fissure_type == "sp":
             f_type = "Steel Path "
-        # elif type == 'rj':
+        # elif fissure_type == 'rj':
         #     f_type = 'Railjack'
         else:
             f_type = ""
@@ -97,16 +99,17 @@ class fissure(commands.Cog):
 
         for fissure in fissures:
             modifier = fissure.modifier
+            tier = fissure.tier
             mission_type = fissure.mission_type
             node = fissure.node
 
-            if type == "sp" and not fissure.hard:
+            if fissure.hard and fissure_type != "Steel Path ":
                 continue
 
             fissure_list.append(
                 (
-                    modifier,
-                    f"{modifier} - {mission_type}",
+                    tier,
+                    f"{modifier} - {mission_type} ({fissure.hard})",
                     f"{node}\nEnds: <t:{int(fissure.expiry.timestamp())}:R>",
                 )
             )

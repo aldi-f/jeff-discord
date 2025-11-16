@@ -39,7 +39,8 @@ class _Inventory(Struct):
     limit: int = field(name="Limit", default=0)
 
     def __post_init__(self):
-        self.item_type = parse_unique_name(self.item_type) or self.item_type
+        if isinstance(self.item_type, str):
+            self.item_type = parse_unique_name(self.item_type) or self.item_type
 
 class Baro(Struct):
     activation: datetime | dict = field(name="Activation")
@@ -53,8 +54,8 @@ class Baro(Struct):
             self.activation = parse_mongo_date(self.activation)
         if isinstance(self.expiry, dict):
             self.expiry = parse_mongo_date(self.expiry)
-
-        self.node = find_internal_mission_name(self.node, cache) or self.node
+        if isinstance(self.node, str):
+            self.node = find_internal_mission_name(self.node, cache) or self.node
 
 
 ##########################################################

@@ -292,7 +292,7 @@ WIKI_MODULE_BODY = {
 }
 
 GITHUB = {
-    "internalnames:1": "https://raw.githubusercontent.com/aldi-f/warframe-wiki-scraper/refs/heads`/main/data/internal_names.json",
+    "internalnames:1": "https://raw.githubusercontent.com/aldi-f/warframe-wiki-scraper/refs/heads/main/data/internal_names.json",
     "missions:1": "https://raw.githubusercontent.com/aldi-f/warframe-wiki-scraper/refs/heads/main/data/missions.json",
     "skins:1" : "https://raw.githubusercontent.com/WFCD/warframe-items/master/data/json/Skins.json",
 }
@@ -408,6 +408,18 @@ def find_internal_mission_name(internal_name: str, redis_cache: "RedisManager")-
         mission = obj[0]
 
         return f"{mission['Name']} ({mission['Planet']})"
+    return None
+
+@cache
+def find_internal_mission_type(internal_name: str, redis_cache: "RedisManager")-> str|None:
+    if not redis_cache.cache.exists("missions:1"):
+        update_cache("missions:1", redis_cache)
+
+    data = json.loads(redis_cache.cache.get("missions:1"))
+    mission_types = data["MissionTypes"]
+    for mission_type, mission_dict in mission_types.items():
+        if mission_dict.get('InternalName') == internal_name:
+            return mission_type
     return None
 
 @cache
