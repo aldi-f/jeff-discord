@@ -6,7 +6,7 @@ from datetime import datetime
 from pytz import UTC
 
 from app.redis_manager import cache
-from app.funcs import find_internal_name
+from app.funcs import find_internal_mission_name, find_internal_name
 
 def parse_mongo_date(date_dict: dict) -> datetime:
     """Parse MongoDB $date format to datetime."""
@@ -35,6 +35,9 @@ def parse_unique_name(internal_name: str) -> str | None:
 class _Mission(Struct):
     mission_type: str = field(name="missionType")
     node: str = field(name="node")
+
+    def __post_init__(self):
+        self.node = find_internal_mission_name(self.node, cache) or self.node
 
 class ArchonHunt(Struct):
     activation: datetime | dict = field(name="Activation")

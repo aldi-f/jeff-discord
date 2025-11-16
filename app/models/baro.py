@@ -6,7 +6,7 @@ from datetime import datetime
 from pytz import UTC
 
 from app.redis_manager import cache
-from app.funcs import find_internal_name
+from app.funcs import find_internal_mission_name, find_internal_name
 
 def parse_mongo_date(date_dict: dict) -> datetime:
     """Parse MongoDB $date format to datetime."""
@@ -53,6 +53,8 @@ class Baro(Struct):
             self.activation = parse_mongo_date(self.activation)
         if isinstance(self.expiry, dict):
             self.expiry = parse_mongo_date(self.expiry)
+
+        self.node = find_internal_mission_name(self.node, cache) or self.node
 
 
 ##########################################################

@@ -6,7 +6,7 @@ from datetime import datetime
 from pytz import UTC
 
 from app.redis_manager import cache
-from app.funcs import find_internal_name
+from app.funcs import find_internal_name, find_internal_mission_name
 
 
 def parse_mongo_date(date_dict: dict) -> datetime:
@@ -57,6 +57,9 @@ class _MissionInfo(Struct):
     min_level: int = field(name="minEnemyLevel", default=0)
     max_level: int = field(name="maxEnemyLevel", default=0)
     max_waves: int = field(name="maxWaveNum", default=0)
+
+    def __post_init__(self):
+        self.location = find_internal_mission_name(self.location, cache) or self.location
 
 
 class Alert(Struct):

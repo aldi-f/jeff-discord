@@ -5,6 +5,9 @@ from msgspec import Struct, field
 from datetime import datetime
 from pytz import UTC
 
+from app.redis_manager import cache
+from app.funcs import find_internal_mission_name
+
 
 def parse_mongo_date(date_dict: dict) -> datetime:
     """Parse MongoDB $date format to datetime."""
@@ -13,12 +16,14 @@ def parse_mongo_date(date_dict: dict) -> datetime:
     return datetime.fromtimestamp(timestamp_ms / 1000, tz=UTC)
 
 
-
 class _Variant(Struct):
     mission_type: str = field(name="missionType")
     modifier_type: str = field(name="modifierType")
     node: str = field(name="node")
     tileset: str = field(name="tileset")
+
+    def __post_init__(self):
+        self.node = find_internal_mission_name(self.node, cache) or self.node
 
 class Sortie(Struct):
     activation: datetime | dict = field(name="Activation")
