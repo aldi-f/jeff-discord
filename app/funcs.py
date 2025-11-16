@@ -291,10 +291,11 @@ WIKI_MODULE_BODY = {
     },
 }
 
-# Pulled from community developer github repo
-WFCD = {
+GITHUB = {
+    "internalnames:1": "https://raw.githubusercontent.com/aldi-f/warframe-wiki-scraper/refs/heads/main/data/internal_names.json",
     "skins:1" : "https://raw.githubusercontent.com/WFCD/warframe-items/master/data/json/Skins.json",
 }
+
 
 CHECKSUMS = {
     "ability:1": "ability:checksum:1",
@@ -302,6 +303,7 @@ CHECKSUMS = {
     "blueprint:1": "blueprint:checksum:1",
     "companion:1": "companion:checksum:1",
     "enemy:1": "enemy:checksum:1",
+    "internalnames:1": "internalnames:checksum:1",
     "mod:1": "mod:checksum:1",
     "skins:1": "skins:checksum:1",
     "tennogen:1": "tennogen:checksum:1",
@@ -381,6 +383,16 @@ def update_cache(data_key:str, redis_cache: "RedisManager"):
             break
         else:
             print(f"[refill_wiki_data][{time.ctime()}]:\t[Downloading not succesful for '{data_key}'data retrieved: {data_key}. Retrying...({retries})]")
+
+
+
+@cache
+def find_internal_name(internal_name: str, redis_cache: "RedisManager")-> str|None:
+    if not redis_cache.cache.exists("internalnames:1"):
+        update_cache("internalnames:1", redis_cache)
+
+    data = json.loads(redis_cache.cache.get("internalnames:1"))
+    return data.get(internal_name, None)
 
 @cache
 def find_internal_warframe_name(internal_name: str, redis_cache: "RedisManager")-> str|None:

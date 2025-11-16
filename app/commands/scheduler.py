@@ -6,7 +6,7 @@ import time
 
 from discord.ext import commands, tasks
 
-from app.funcs import WIKI_URL_BASE, WIKI_MODULE_BODY, WFCD, CHECKSUMS, unserialize_lua_table
+from app.funcs import WIKI_URL_BASE, WIKI_MODULE_BODY, GITHUB, CHECKSUMS, unserialize_lua_table
 from app.redis_manager import cache
 
 logger = logging.getLogger(__name__)
@@ -82,7 +82,7 @@ class Scheduler(commands.Cog):
 
     @tasks.loop(hours=1)
     async def refill_github_data(self):
-        for key, url in WFCD.items():
+        for key, url in GITHUB.items():
             retries = 0
             ready = False
 

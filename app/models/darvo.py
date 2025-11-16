@@ -6,7 +6,7 @@ from datetime import datetime
 from pytz import UTC
 
 from app.redis_manager import cache
-from app.funcs import find_internal_weapon_name, find_internal_warframe_name
+from app.funcs import find_internal_weapon_name, find_internal_warframe_name, find_internal_name
 
 
 def parse_mongo_date(date_dict: dict) -> datetime:
@@ -17,14 +17,19 @@ def parse_mongo_date(date_dict: dict) -> datetime:
 
 def parse_unique_name(internal_name: str) -> str | None:
     """Try to parse internal name to user-friendly name."""
-    name = internal_name.replace("StoreItems/", "")
 
-    if name.startswith("/Lotus/Weapons/"):  # Weapon
-        return find_internal_weapon_name(name, cache)
-    elif name.startswith("/Lotus/Powersuits/"):  # Warframe
-        return find_internal_warframe_name(name, cache)
-    else:
-        return None
+    # Try with raw name:
+    name = find_internal_name(internal_name, cache)
+    if name:
+        return name
+    
+    # Try removing prefix
+    internal_name = internal_name.replace("StoreItems/", "")
+    name = find_internal_name(internal_name, cache)
+    if name:
+        return name
+    
+    return None
 
 
 class Darvo(Struct):

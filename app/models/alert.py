@@ -5,6 +5,9 @@ from msgspec import Struct, field
 from datetime import datetime
 from pytz import UTC
 
+from app.redis_manager import cache
+from app.funcs import find_internal_name
+
 
 def parse_mongo_date(date_dict: dict) -> datetime:
     """Parse MongoDB $date format to datetime."""
@@ -13,9 +16,29 @@ def parse_mongo_date(date_dict: dict) -> datetime:
     return datetime.fromtimestamp(timestamp_ms / 1000, tz=UTC)
 
 
+def parse_unique_name(internal_name: str) -> str | None:
+    """Try to parse internal name to user-friendly name."""
+
+    # Try with raw name:
+    name = find_internal_name(internal_name, cache)
+    if name:
+        return name
+    
+    # Try removing prefix
+    internal_name = internal_name.replace("StoreItems/", "")
+    name = find_internal_name(internal_name, cache)
+    if name:
+        return name
+    
+    return None
+
+
 class _counted_items(Struct):
     item: str = field(name="ItemType")
     quantity: int = field(name="ItemCount")
+
+    def __post_init__(self):
+        self.item = parse_unique_name(self.item) or self.item
 
 
 class _missionReward(Struct):
