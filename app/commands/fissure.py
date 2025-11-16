@@ -67,7 +67,7 @@ class fissure(commands.Cog):
     @app_commands.command(name="fissures", description="Show the current Fissures")
     # @app_commands.guilds(discord.Object(id=992897664087760979))
     @app_commands.choices(
-        type=[
+        fissure_type=[
             discord.app_commands.Choice(name="Normal", value=""),
             discord.app_commands.Choice(name="Steel Path", value="sp"),
             discord.app_commands.Choice(name="Railjack", value="rj"),
