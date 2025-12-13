@@ -1,7 +1,7 @@
-import discord
 import logging
 import time
 
+import discord
 from discord.ext import commands
 
 from app.api.worldstate import worldstate_client
@@ -38,7 +38,7 @@ class sortie(commands.Cog):
         for i, mission in enumerate(sortie.variants):
             embed.add_field(
                 name=f"({i + 1}) {mission.mission_type}",
-                value=f"{mission.node}\nCondition: {mission.mission_type}\nEffect: TODO",
+                value=f"{mission.node}\nCondition: {mission.modifier_type}\nEffect: TODO",
                 inline=False,
             )
 
