@@ -101,7 +101,7 @@ class mod(commands.Cog):
             if "Polarity" in snekw_mod:
                 pol = polarity(snekw_mod["Polarity"])
 
-            embed.title = f"{snekw_mod['Name']}{pol} ({snekw_mod['rarity']})\n{snekw_mod['Type']} Mod"
+            embed.title = f"{snekw_mod['Name']}{pol} ({snekw_mod['Rarity']})\n{snekw_mod['Type']} Mod"
             embed.description = (
                 f"Drain cost: {snekw_mod['BaseDrain']} - {snekw_mod['BaseDrain'] + snekw_mod['MaxRank']} (Ranks 0 - {snekw_mod['MaxRank']})"
                 + "\n\n"
