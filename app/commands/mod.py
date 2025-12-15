@@ -51,21 +51,23 @@ class mod(commands.Cog):
 
         download_timer += time.time() - download_start
 
+        # try with cached data instead
+        for key, value in snekw.items():
+            if mod.lower() == key.lower():
+                snekw_mod = value
+                found_in_wiki = True
+        # if not exact match, try partial match
+        if snekw_mod is None:
+            for key, value in snekw.items():
+                if mod.lower() in key.lower():
+                    snekw_mod = value
+                    found_in_wiki = True
+        
         snekw_mod = None
 
         if "code" in data and data["code"] == 404:
             found_in_wfcd = False
-            # try with cached data instead
-            for key, value in snekw.items():
-                if mod.lower() == key.lower():
-                    snekw_mod = value
-                    found_in_wiki = True
-            # if not exact match, try partial match
-            if snekw_mod is None:
-                for key, value in snekw.items():
-                    if mod.lower() in key.lower():
-                        snekw_mod = value
-                        found_in_wiki = True
+
 
         if not found_in_wfcd and not found_in_wiki:
             error = discord.Embed(description="Did not find a matching mod!")
@@ -75,7 +77,7 @@ class mod(commands.Cog):
         price_ranked = ""
         price_unranked = ""
         market_start = time.time()
-        if snekw_mod["Tradable"]:
+        if snekw_mod.get("Tradable"):
             try:
                 price_checker = PriceCheck(item=snekw_mod["Name"])
                 price_ranked = await price_checker.check(rank=int(snekw_mod["MaxRank"]))
