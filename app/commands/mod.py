@@ -51,7 +51,8 @@ class mod(commands.Cog):
 
         download_timer += time.time() - download_start
 
-        # try with cached data instead
+        snekw_mod = None
+        # try with cached data also
         for key, value in snekw.items():
             if mod.lower() == key.lower():
                 snekw_mod = value
@@ -63,7 +64,6 @@ class mod(commands.Cog):
                     snekw_mod = value
                     found_in_wiki = True
         
-        snekw_mod = None
 
         if "code" in data and data["code"] == 404:
             found_in_wfcd = False
