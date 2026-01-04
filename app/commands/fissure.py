@@ -1,7 +1,7 @@
-import discord
 import logging
 import time
 
+import discord
 from discord import app_commands
 from discord.ext import commands
 
@@ -41,7 +41,7 @@ class fissure(commands.Cog):
             mission_type = fissure.mission_type
             node = fissure.node
 
-            if fissure.hard and fissure_type != "Steel Path ":
+            if fissure.hard and fissure_type != "sp":
                 continue
 
             fissure_list.append(
