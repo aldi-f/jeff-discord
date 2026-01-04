@@ -41,16 +41,27 @@ class fissure(commands.Cog):
             mission_type = fissure.mission_type
             node = fissure.node
 
-            if fissure.hard and fissure_type != "sp":
+            if fissure_type == "sp":
+                if fissure.hard:
+                    fissure_list.append(
+                        (
+                            tier,
+                            f"{modifier} - {mission_type} ({fissure.hard})",
+                            f"{node}\nEnds: <t:{int(fissure.expiry.timestamp())}:R>",
+                        )
+                    )
+                else:
+                    continue
+            elif fissure.hard:
                 continue
-
-            fissure_list.append(
-                (
-                    tier,
-                    f"{modifier} - {mission_type} ({fissure.hard})",
-                    f"{node}\nEnds: <t:{int(fissure.expiry.timestamp())}:R>",
+            else:
+                fissure_list.append(
+                    (
+                        tier,
+                        f"{modifier} - {mission_type} ({fissure.hard})",
+                        f"{node}\nEnds: <t:{int(fissure.expiry.timestamp())}:R>",
+                    )
                 )
-            )
 
         fissures_sorted = sorted(fissure_list, key=lambda x: x[0])
 
