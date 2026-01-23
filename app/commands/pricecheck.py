@@ -92,7 +92,7 @@ class ScreenshotScraper:
                 return None
 
         return await asyncio.to_thread(blocking_scrape)
-    
+
 
 class ItemValidator:
     _cached_items = None
@@ -148,7 +148,48 @@ async def get_all_market_items():
     except Exception as e:
         print(f"Error fetching items: {e}")
         return None
-    
+
+
+class PriceCheckPaginationView(discord.ui.View):
+    def __init__(self, pages: list[discord.Embed], author_id: int, *, timeout: float = 180):
+        super().__init__(timeout=timeout)
+        self.pages = pages
+        self.author_id = author_id
+        self.index = 0
+        self.message = None
+        self._update_buttons()
+
+    def _update_buttons(self):
+        self.prev_button.disabled = self.index <= 0
+        self.next_button.disabled = self.index >= (len(self.pages) - 1)
+
+    async def interaction_check(self, interaction: discord.Interaction) -> bool:
+        if interaction.user.id != self.author_id:
+            await interaction.response.send_message(
+                "Only the command author can use these buttons.",
+                ephemeral=True,
+            )
+            return False
+        return True
+
+    @discord.ui.button(label="Previous", style=discord.ButtonStyle.secondary)
+    async def prev_button(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.index = max(0, self.index - 1)
+        self._update_buttons()
+        await interaction.response.edit_message(embed=self.pages[self.index], view=self)
+
+    @discord.ui.button(label="Next", style=discord.ButtonStyle.secondary)
+    async def next_button(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.index = min(len(self.pages) - 1, self.index + 1)
+        self._update_buttons()
+        await interaction.response.edit_message(embed=self.pages[self.index], view=self)
+
+    async def on_timeout(self):
+        for child in self.children:
+            if isinstance(child, discord.ui.Button):
+                child.disabled = True
+        if self.message:
+            await self.message.edit(view=self)
 
 
 class PriceCheckCog(commands.Cog):
@@ -194,7 +235,7 @@ class PriceCheckCog(commands.Cog):
                 error = discord.Embed(description="No valid items found in the screenshots.")
                 await ctx.send(embed=error)
                 return
-                
+
 
             embed = discord.Embed(title="Price Check", color=discord.Color.blue())
             message = await ctx.send(f"Found {len(valid_items)} items. Doing Price checks...")
@@ -217,14 +258,27 @@ class PriceCheckCog(commands.Cog):
             items_with_price.sort(key=lambda x: (x[1][0] if len(x[1]) != 0 else 0,
                                                 sum(x[1]) / len(x[1]) if len(x[1]) != 0 else 0
                                                 ), reverse=True)
-            item_text = f"Found {len(valid_items)} items in the screenshot:\n"
-            for item, prices in items_with_price:
-                price_text = PriceCheck.format_output(prices)
-                item_text += f"- {item.i18n['en'].name}: {price_text}\n"
+            total_items = len(items_with_price)
+            per_page = 20
+            pages = []
+            for page_index in range(0, total_items, per_page):
+                page_items = items_with_price[page_index:page_index + per_page]
+                item_text = f"Found {len(valid_items)} items in the screenshot:\n"
+                for item, prices in page_items:
+                    price_text = PriceCheck.format_output(prices)
+                    item_text += f"- {item.i18n['en'].name}: {price_text}\n"
 
-            embed.description = item_text
-            embed.set_footer(text=f"Processed in {int(time.time() - start)} seconds")
-            await message.edit(content="", embed=embed)
+                page_num = (page_index // per_page) + 1
+                total_pages = (total_items + per_page - 1) // per_page
+                page_embed = discord.Embed(title="Price Check", color=discord.Color.blue())
+                page_embed.description = item_text
+                page_embed.set_footer(text=f"Page {page_num}/{total_pages} • Processed in {int(time.time() - start)} seconds")
+                pages.append(page_embed)
+
+            if pages:
+                view = PriceCheckPaginationView(pages=pages, author_id=ctx.author.id)
+                await message.edit(content="", embed=pages[0], view=view)
+                view.message = message
 
 
 async def setup(bot: commands.Bot):
